@@ -3,23 +3,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-white: #FFF;
-    --color-whiteSmoke: #F7F7F7;
-    --color-lightGrey: #D9D9D9;
-    --color-grey: #9B9B9B;
-    --color-intenseGrey: #828282;
     --color-black: #000;
+    --color-primaryBlack: #212121;
+    --color-secondaryBlack: #262626;
+    --color-tertiaryBlack: #303030;
+    --color-intenseGrey: #828282;
+    --color-oceanGrey: #8A8C8E;
+    --color-grey: #9B9B9B;
+    --color-lightGrey: #D9D9D9;
+    --color-veryLightGrey: #F7F7F7;
+    --color-white: #FFF;
     --color-hyperLinkBlue: #007BFF;
-    --color-mintGreen: #3EB489;
-    --color-emeraldGreen: #16BE3B;
-    --color-excelGreen: #28A745;
-    --color-pdfRed: #EE3E36;
+    --color-friBlue: #00A8FF;
+    --color-themeColor: #199AD7;
     --color-alarmRed: #FF0000;
-    --color-roseRed: #F92672;
+    --color-roseRed: #FF2550;
+    --color-pdfRed: #EE3E36;
+    --color-thuOrange: #FF5B01;
+    --color-satPurple: #AE29FF;
+    --color-tuePink: #FF33F7;
+    --color-pastelPink: #FFA8FF;
     --color-warningYellow: #FFBC29;
+    --color-monYellow: #FEC001;
+    --color-creamYellow: #FFCB00;
+    --color-yellow: #FFD600;
+    --color-excelGreen2: #0F7C41;
+    --color-excelGreen: #28A745;
+    --color-wedGreen: #2DBC84;
+    --color-emeraldGreen: #16BE3B;
+
     --color-backgroundColor1: #F2F2F2;
     --color-backgroundColor2: #779ECB;
-    --color-alarmYellow: #FFD600;
 
     --spacing-headerHeight: 54px;
     --spacing-sidebarHeight: calc(100vh - 54px);
@@ -33,11 +47,12 @@ body {
     margin: 0;
     font-family: "Kanit", sans-serif;
     box-sizing: border-box;
-    background-color: var(--color-backgroundColor1);
+    background-color: var(--color-white);
+    font-size: 20px;
 }
 
 html.dark body {
-    background-color: var(--color-fadeBlack);
+    background-color: var(--color-primaryBlack);
 }
 
 dialog {
