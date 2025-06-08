@@ -16,7 +16,7 @@ export default function Router() {
     return (
         <div className='relative'>
             <Header />
-            <div className='grid grid-cols-1 relative'>
+            <div className='grid grid-cols-1 relative z-100'>
                 <Sidebar
                     className={`
                         absolute z-1000 top-0 bottom-0 transition-all duration-500 ease-in-out
