@@ -357,11 +357,11 @@ export default function Sidebar({ className }: { className?: string }) {
                 )} */}
                 <SidebarRecursive nodes={dashboardMenu} />
                 <SidebarRecursive nodes={claimHistoryMenu} />
-                <div className='pl-2 pt-3 text-grey'>เอกสาร</div>
+                <div className='pl-2 pt-3 text-themeColor'>เอกสาร</div>
                 <SidebarRecursive nodes={documentMenu} />
-                <div className='pl-2 pt-3 text-grey'>ข้อมูล Dropdown List</div>
+                <div className='pl-2 pt-3 text-themeColor'>ข้อมูล Dropdown List</div>
                 <SidebarRecursive nodes={dropdownListMenu} />
-                <div className='pl-2 pt-3 text-grey'>ข้อมูลบริษัท และพนักงาน</div>
+                <div className='pl-2 pt-3 text-themeColor'>ข้อมูลบริษัท และพนักงาน</div>
                 <SidebarRecursive nodes={companyAndEmployeeMenu} />
                 <div className='pl-2 pt-3 opacity-0 select-none'>Hidden</div>
                 <SidebarRecursive nodes={othersMenu} />
