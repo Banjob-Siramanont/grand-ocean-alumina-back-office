@@ -1,3 +1,5 @@
+import ContainedButton from '../common/button/ContainedButton';
+import OutlinedButton from '../common/button/OutlinedButton';
 import InputDateAndTime from '../common/input/InputDateAndTime';
 import InputPrimary from '../common/input/InputPrimary';
 import InputSecondary from '../common/input/InputSecondary';
@@ -68,6 +70,19 @@ export default function Example() {
                     textHelper='test'
                 />
             </div>
+            <OutlinedButton
+                text='Submit'
+                textColor='text-themeColor'
+                bgColor='bg-themeColor'
+                borderColor='border-themeColor'
+                onClick={() => console.log('Submitted')}
+            />
+            <ContainedButton
+                text='YouTube'
+                bgColor='bg-alarmRed'
+                borderColor='border-alarmRed'
+                onClick={() => console.log('Submitted')}
+            />
         </>
     )
 }
