@@ -8,6 +8,11 @@ import Example from '../pages/Example';
 import Header from '../layouts/header/Header';
 import Sidebar from '../layouts/sidebar/Sidebar';
 
+// Dashboard
+import ProductInProductionLine from '../pages/dashboard/dashboard/ProductInProductionLine';
+import ProductSales from '../pages/dashboard/dashboard/ProductSales';
+import BestSellingProduct from '../pages/dashboard/dashboard/BestSellingProduct';
+
 // Customer Order
 import PurchaseOrderList from '../pages/customerOrder/purchaseOrder/PurchaseOrderList';
 import AddPurchaseOrder from '../pages/customerOrder/purchaseOrder/AddPurchaseOrder';
@@ -90,6 +95,11 @@ export default function Router() {
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/' element={<Example />} />
+                        {/* Dashboard */}
+                        <Route path='/product-in-production-line' element={<ProductInProductionLine />} />
+                        <Route path='/product-sales' element={<ProductSales />} />
+                        <Route path='/best-selling-product' element={<BestSellingProduct />} />
+
                         {/* Customer Order */}
                         <Route path='/purchase-order-list' element={<PurchaseOrderList />} />
                         <Route path='/add-purchase-order' element={<AddPurchaseOrder />} />

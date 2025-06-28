@@ -43,27 +43,23 @@ export default function Sidebar({ className }: { className?: string }) {
             name: 'Dashboard',
             nodes: [
                 {
-                    name: 'สินค้าที่กำลังผลิต',
+                    name: 'สินค้าในสายการผลิต',
                     reactIcon: FaMinus,
-                    path: '/claim-history-lists',
-                    relatePath: ['/claim-history-lists/edit'],
-                    noSubMenu: true,
+                    path: '/product-in-production-line',
                 },
                 {
                     name: 'ยอดขายสินค้า',
                     reactIcon: FaMinus,
-                    path: '/add-claim-history',
-                    noSubMenu: true,
+                    path: '/product-sales',
                 },
                 {
                     name: 'สินค้าขายดี',
                     reactIcon: FaMinus,
-                    path: '/add-claim-history',
-                    noSubMenu: true,
+                    path: '/best-selling-product',
                 },
             ],
             reactIcon: GoGraph,
-            relatePath: ['/', '/claim-history-lists', '/claim-history-lists/edit', '/add-claim-history'],
+            relatePath: ['/', '/product-in-production-line', '/product-sales', '/best-selling-product'],
         },
     ];
     const customerOrderMenu: Node[] = [
