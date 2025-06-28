@@ -61,12 +61,6 @@ export default function Sidebar({ className }: { className?: string }) {
                     path: '/add-claim-history',
                     noSubMenu: true,
                 },
-                {
-                    name: 'ส่งซ่อม / คืน / เปลี่ยน',
-                    reactIcon: FaMinus,
-                    path: '/add-claim-history',
-                    noSubMenu: true,
-                },
             ],
             reactIcon: GoGraph,
             relatePath: ['/', '/claim-history-lists', '/claim-history-lists/edit', '/add-claim-history'],

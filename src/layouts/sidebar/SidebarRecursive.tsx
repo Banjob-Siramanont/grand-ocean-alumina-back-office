@@ -79,7 +79,7 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
                 text: '',
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: 'var(--color-orange)',
+                confirmButtonColor: 'var(--color-themeColor)',
                 confirmButtonText: 'ใช่',
                 cancelButtonColor: 'var(--color-alarmRed)',
                 cancelButtonText: 'ไม่ใช่',
@@ -95,8 +95,6 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
             dispatch(setSidebarDatas({ value: false, variableName: 'isSidebarOpen' }))
         }
     };
-
-
 
     return (
         <li
