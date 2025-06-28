@@ -124,7 +124,7 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
                     <button
                         className={`
                             w-full rounded-md hover:text-themeColor transition-colors duration-200
-                            ${node.path === currentLocation && node.noSubMenu ? 'bg-white dark:bg-secondaryBlack' : ''}
+                            ${node.path === currentLocation && node.noSubMenu ? 'bg-white dark:bg-secondaryBlack border border-lightGrey dark:border-oceanGrey' : ''}
                             ${node.path === currentLocation ?
                                 'text-themeColor' :
                                 parentRelatePath?.includes(currentLocation) ? 'text-black dark:text-white' : 'text-grey dark:text-oceanGrey'
@@ -132,7 +132,7 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
                         `}
                         onClick={() => handleSubNodeOnClick(node.path!)} // สัญลักษณ์ ! ข้างหลัง ใช้เพื่อบอก typescript ว่าตรงนี้ไม่ใช่ undefined แน่นอน (ป้องกัน typescript error)
                     >
-                        <div className='flex justify-start items-center gap-x-2 pl-[30px] py-1.5'>
+                        <div className='flex justify-start items-center gap-x-2 pl-7.5 py-0.5'>
                             {node.reactIcon && (<node.reactIcon />)}
                             {node.name}
                         </div>
