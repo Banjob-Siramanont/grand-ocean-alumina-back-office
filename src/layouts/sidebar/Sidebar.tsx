@@ -10,18 +10,17 @@ import { setSidebarDatas } from '../../store/reducer/sidebarSlice/SidebarSlice';
 import SidebarRecursive from './SidebarRecursive';
 
 // React Icon
-import { FiLogOut } from 'react-icons/fi';
-import { CgSandClock } from 'react-icons/cg';
-import { IoDocumentText, IoShieldSharp, IoColorFilter } from 'react-icons/io5';
-import { FaFileInvoiceDollar } from 'react-icons/fa';
-import { MdAttachMoney, MdEngineering } from 'react-icons/md';
-import { FaMotorcycle } from 'react-icons/fa';
-import { HiWrenchScrewdriver } from 'react-icons/hi2';
-import { PiBuildingOfficeDuotone, PiMotorcycleLight } from 'react-icons/pi';
-import { FaUserGroup, FaMinus } from 'react-icons/fa6';
-import { GrWorkshop } from 'react-icons/gr';
 import { GoGraph } from 'react-icons/go';
+import { FaMinus } from 'react-icons/fa6';
+import { IoDocumentTextOutline, IoStorefrontOutline, IoCalendarOutline } from 'react-icons/io5';
+import { LuClock8 } from 'react-icons/lu';
+import { PiTruckLight, PiLockers } from 'react-icons/pi';
+import { TbBuildingCommunity } from 'react-icons/tb';
+import { MdOutlineCategory } from 'react-icons/md';
+import { BiCategoryAlt } from 'react-icons/bi';
+import { FiLogOut } from 'react-icons/fi';
 
+// Type
 import type { IconType } from 'react-icons/lib';
 import type { AppDispatch, RootState } from '../../store/Store';
 
@@ -40,277 +39,304 @@ export default function Sidebar({ className }: { className?: string }) {
     const dashboardMenu: Node[] = [
         {
             name: 'Dashboard',
-            reactIcon: GoGraph,
-            path: '/dashboard',
-            noSubMenu: true,
-        },
-    ];
-    const claimHistoryMenu: Node[] = [
-        {
-            name: 'ประวัติรถเข้าเคลม',
             nodes: [
                 {
-                    name: 'ประวัติรถเข้าเคลมทั้งหมด',
+                    name: 'สินค้าที่กำลังผลิต',
                     reactIcon: FaMinus,
                     path: '/claim-history-lists',
                     relatePath: ['/claim-history-lists/edit'],
                     noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มประวัติรถเข้าเคลม',
+                    name: 'ยอดขายสินค้า',
+                    reactIcon: FaMinus,
+                    path: '/add-claim-history',
+                    noSubMenu: true,
+                },
+                {
+                    name: 'สินค้าขายดี',
+                    reactIcon: FaMinus,
+                    path: '/add-claim-history',
+                    noSubMenu: true,
+                },
+                {
+                    name: 'ส่งซ่อม / คืน / เปลี่ยน',
                     reactIcon: FaMinus,
                     path: '/add-claim-history',
                     noSubMenu: true,
                 },
             ],
-            reactIcon: CgSandClock,
+            reactIcon: GoGraph,
             relatePath: ['/', '/claim-history-lists', '/claim-history-lists/edit', '/add-claim-history'],
         },
     ];
-    const documentMenu: Node[] = [
+    const customerOrderMenu: Node[] = [
         {
-            name: 'ใบสั่งงาน',
+            name: 'ใบ PO',
             nodes: [
                 {
-                    name: 'ใบสั่งงานทั้งหมด',
+                    name: 'ใบ PO ทั้งหมด',
+                    reactIcon: FaMinus,
+                    path: '/claim-history-lists',
+                    relatePath: ['/claim-history-lists/edit'],
+                    noSubMenu: true,
+                },
+                {
+                    name: 'เพิ่มใบ PO',
+                    reactIcon: FaMinus,
+                    path: '/add-claim-history',
+                    noSubMenu: true,
+                },
+                {
+                    name: 'รายการส่งซ่อม / คืน / เปลี่ยน',
+                    reactIcon: FaMinus,
+                    path: '/add-claim-history',
+                    noSubMenu: true,
+                },
+                {
+                    name: 'ส่งซ่อม / คืน / เปลี่ยน',
+                    reactIcon: FaMinus,
+                    path: '/add-claim-history',
+                    noSubMenu: true,
+                },
+            ],
+            reactIcon: IoDocumentTextOutline,
+            relatePath: ['/', '/claim-history-lists', '/claim-history-lists/edit', '/add-claim-history'],
+        },
+    ];
+    const logisticMenu: Node[] = [
+        {
+            name: 'ร้านค้า',
+            nodes: [
+                {
+                    name: 'กทม และปริมณฑล',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
                     relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
                 },
                 {
-                    name: 'สร้างใบสั่งงาน',
+                    name: 'เหนือ',
                     reactIcon: FaMinus,
-                    path: '/create-work-order',
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'อีสาน',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'กลาง',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'ตะวันออก',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'ใต้',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
                 },
             ],
-            reactIcon: MdEngineering,
+            reactIcon: IoStorefrontOutline,
             relatePath: ['/work-order-lists', '/work-order-lists/edit', '/preview-work-order/', '/create-work-order'],
         },
         {
-            name: 'ใบเสนอราคา',
-            nodes: [
-                {
-                    name: 'ใบเสนอราคาทั้งหมด',
-                    reactIcon: FaMinus,
-                    path: '/quotation-lists',
-                    relatePath: ['/preview-quotation/', '/quotation-lists/edit'],
-                },
-                {
-                    name: 'สร้างใบเสนอราคา',
-                    reactIcon: FaMinus,
-                    path: '/create-quotation',
-                },
-            ],
-            reactIcon: IoDocumentText,
-            relatePath: ['/quotation-lists', '/preview-quotation/', '/quotation-lists/edit', '/create-quotation'],
+            name: 'ตารางจัดส่ง',
+            reactIcon: IoCalendarOutline,
+            path: '/dashboard',
+            noSubMenu: true,
         },
+
+    ];
+    const productionMenu: Node[] = [
         {
-            name: 'ใบปะหน้า',
-            nodes: [
-                {
-                    name: 'ใบปะหน้าทั้งหมด',
-                    reactIcon: FaMinus,
-                    path: '/quotation-cover-lists',
-                    relatePath: ['/quotation-cover-lists/edit'],
-                },
-                {
-                    name: 'สร้างใบปะหน้า',
-                    reactIcon: FaMinus,
-                    path: '/create-quotation-cover',
-                },
-            ],
-            reactIcon: IoDocumentText,
-            relatePath: ['/quotation-cover-lists', '/quotation-cover-lists/edit', '/create-quotation-cover'],
-        },
-        {
-            name: 'ใบแจ้งหนี้ / ใบวางบิล',
-            nodes: [
-                {
-                    name: 'ใบแจ้งหนี้ทั้งหมด',
-                    reactIcon: FaMinus,
-                    path: '/pre-invoice-lists',
-                    relatePath: ['/pre-invoice-lists/edit'],
-                },
-                {
-                    name: 'สร้างใบแจ้งหนี้',
-                    reactIcon: FaMinus,
-                    path: '/create-pre-invoice',
-                },
-            ],
-            reactIcon: FaFileInvoiceDollar,
-            relatePath: ['/pre-invoice-lists', '/pre-invoice-lists/edit', '/create-pre-invoice'],
-        },
-        {
-            name: 'ใบเสร็จรับเงิน',
-            nodes: [
-                {
-                    name: 'ใบเสร็จรับเงินทั้งหมด',
-                    reactIcon: FaMinus,
-                    path: '/receipt-lists',
-                    relatePath: ['/receipt-lists/edit'],
-                },
-                {
-                    name: 'สร้างใบเสร็จรับเงิน',
-                    reactIcon: FaMinus,
-                    path: '/create-receipt',
-                },
-            ],
-            reactIcon: MdAttachMoney,
-            relatePath: ['/receipt-lists', '/receipt-lists/edit', '/create-receipt'],
+            name: 'แผนการผลิต',
+            reactIcon: LuClock8,
+            path: '/dashboard',
+            noSubMenu: true,
         },
     ];
-    const dropdownListMenu: Node[] = [
+    const adminMenu: Node[] = [
         {
-            name: 'บริษัทประกันภัย',
+            name: 'รถขนสินค้า',
             nodes: [
                 {
-                    name: 'บริษัทประกันภัยทั้งหมด',
+                    name: 'รถขนสินค้าทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/insurance-company-lists',
-                    relatePath: ['/insurance-company-lists/edit'],
+                    path: '/transport-truck-list',
+                    relatePath: ['/edit-transport-truck/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มบริษัทประกันภัย',
+                    name: 'เพิ่มรถขนสินค้า',
                     reactIcon: FaMinus,
-                    path: '/add-insurance-company',
+                    path: '/add-transport-truck',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: IoShieldSharp,
-            relatePath: ['/insurance-company-lists', '/insurance-company-lists/edit', '/add-insurance-company'],
+            reactIcon: PiTruckLight,
+            relatePath: ['/transport-truck-list', '/add-transport-truck', '/edit-transport-truck/'],
         },
         {
-            name: 'ยี่ห้อรถ',
+            name: 'กลุ่มร้านค้า',
             nodes: [
                 {
-                    name: 'ยี่ห้อรถทั้งหมด',
+                    name: 'กลุ่มร้านค้าทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/vehicle-brand-lists',
-                    relatePath: ['/vehicle-brand-lists/edit'],
+                    path: '/customer-group-list',
+                    relatePath: ['/edit-customer-group/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มยี่ห้อรถ',
+                    name: 'เพิ่มกลุ่มร้านค้า',
                     reactIcon: FaMinus,
-                    path: '/add-vehicle-brand',
+                    path: '/add-customer-group',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: FaMotorcycle,
-            relatePath: ['/vehicle-brand-lists', '/vehicle-brand-lists/edit', '/add-vehicle-brand'],
+            reactIcon: TbBuildingCommunity,
+            relatePath: ['/customer-group-list', '/add-customer-group', '/edit-customer-group/'],
         },
         {
-            name: 'รุ่นรถ',
+            name: 'ร้านค้าในระบบ',
             nodes: [
                 {
-                    name: 'รุ่นรถทั้งหมด',
+                    name: 'ร้านค้าในระบบทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/vehicle-model-lists',
-                    relatePath: ['/vehicle-model-lists/edit'],
+                    path: '/customer-list',
+                    relatePath: ['/edit-customer/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มรุ่นรถ',
+                    name: 'เพิ่มร้านค้าในระบบ',
                     reactIcon: FaMinus,
-                    path: '/add-vehicle-model',
+                    path: '/add-customer',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: PiMotorcycleLight,
-            relatePath: ['/vehicle-model-lists', '/vehicle-model-lists/edit', '/add-vehicle-model'],
+            reactIcon: IoStorefrontOutline,
+            relatePath: ['/customer-list', '/add-customer', '/edit-customer/'],
         },
         {
-            name: 'รายการอะไหล่',
+            name: 'ประเภทสินค้า',
             nodes: [
                 {
-                    name: 'รายการอะไหล่ทั้งหมด',
+                    name: 'ประเภทสินค้าทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/spare-part-lists',
-                    relatePath: ['/spare-part-lists/edit'],
+                    path: '/product-type-list',
+                    relatePath: ['/edit-product-type/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มรายการอะไหล่',
+                    name: 'เพิ่มประเภทสินค้า',
                     reactIcon: FaMinus,
-                    path: '/add-spare-part',
+                    path: '/add-product-type',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: HiWrenchScrewdriver,
-            relatePath: ['/spare-part-lists', '/spare-part-lists/edit', '/add-spare-part'],
+            reactIcon: MdOutlineCategory,
+            relatePath: ['/product-type-list', '/add-product-type', '/edit-product-type/'],
         },
         {
-            name: 'สี',
+            name: 'ประเภทสินค้าย่อย',
             nodes: [
                 {
-                    name: 'สีทั้งหมด',
+                    name: 'ประเภทสินค้าย่อยทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/vehicle-color-lists',
-                    relatePath: ['/vehicle-color-lists/edit'],
+                    path: '/product-subtype-list',
+                    relatePath: ['/edit-product-subtype/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มสี',
+                    name: 'เพิ่มประเภทสินค้าย่อย',
                     reactIcon: FaMinus,
-                    path: '/add-vehicle-color',
+                    path: '/add-product-subtype',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: IoColorFilter,
-            relatePath: ['/vehicle-color-lists', '/vehicle-color-lists/edit', '/add-vehicle-color'],
+            reactIcon: BiCategoryAlt,
+            relatePath: ['/product-subtype-list', '/add-product-subtype', '/edit-product-subtype/'],
         },
         {
-            name: 'ตำแหน่งงาน',
+            name: 'รายการสินค้า',
             nodes: [
                 {
-                    name: 'ตำแหน่งงานทั้งหมด',
+                    name: 'รายการสินค้าทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/job-position-lists',
-                    relatePath: ['/job-position-lists/edit'],
+                    path: '/product-list',
+                    relatePath: ['/edit-product/'],
+                    noSubMenu: true,
                 },
                 {
-                    name: 'เพิ่มตำแหน่งงาน',
+                    name: 'เพิ่มรายการสินค้า',
                     reactIcon: FaMinus,
-                    path: '/add-job-position',
+                    path: '/add-product',
+                    noSubMenu: true,
                 },
             ],
-            reactIcon: GrWorkshop,
-            relatePath: ['/job-position-lists', '/job-position-lists/edit', '/add-job-position'],
+            reactIcon: PiLockers,
+            relatePath: ['/product-list', '/add-product', '/edit-product/'],
         },
     ];
-    const companyAndEmployeeMenu: Node[] = [
+    const approveMenu: Node[] = [
         {
-            name: 'ข้อมูลบริษัท',
+            name: 'ร้านค้า AP',
             nodes: [
                 {
-                    name: 'เกี่ยวกับบริษัท',
+                    name: 'กทม และปริมณฑล',
                     reactIcon: FaMinus,
-                    path: '/about-company',
-                    relatePath: ['/company-branch/edit'],
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
                 },
                 {
-                    name: 'แก้ไขข้อมูลบริษัท',
+                    name: 'เหนือ',
                     reactIcon: FaMinus,
-                    path: '/edit-company',
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
                 },
                 {
-                    name: 'เพิ่มสาขา',
+                    name: 'อีสาน',
                     reactIcon: FaMinus,
-                    path: '/add-company-branch',
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'กลาง',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'ตะวันออก',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                },
+                {
+                    name: 'ใต้',
+                    reactIcon: FaMinus,
+                    path: '/work-order-lists',
+                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
                 },
             ],
-            reactIcon: PiBuildingOfficeDuotone,
-            relatePath: ['/about-company', '/add-company-branch', '/edit-company'],
+            reactIcon: IoStorefrontOutline,
+            relatePath: ['/work-order-lists', '/work-order-lists/edit', '/preview-work-order/', '/create-work-order'],
         },
         {
-            name: 'พนักงาน',
-            nodes: [
-                {
-                    name: 'พนักงานทั้งหมด',
-                    reactIcon: FaMinus,
-                    path: '/employee-lists',
-                    relatePath: ['/employee-lists/edit'],
-                },
-                {
-                    name: 'เพิ่มพนักงาน',
-                    reactIcon: FaMinus,
-                    path: '/add-employee',
-                },
-            ],
-            reactIcon: FaUserGroup,
-            relatePath: ['/employee-lists', '/employee-lists/edit', '/add-employee'],
+            name: 'แผนการผลิต',
+            reactIcon: LuClock8,
+            path: '/dashboard',
+            noSubMenu: true,
         },
+
     ];
     const othersMenu: Node[] = [
         {
@@ -356,13 +382,22 @@ export default function Sidebar({ className }: { className?: string }) {
                 {/* {is_admin && (
                 )} */}
                 <SidebarRecursive nodes={dashboardMenu} />
-                <SidebarRecursive nodes={claimHistoryMenu} />
-                <div className='pl-2 pt-3 text-themeColor'>เอกสาร</div>
-                <SidebarRecursive nodes={documentMenu} />
-                <div className='pl-2 pt-3 text-themeColor'>ข้อมูล Dropdown List</div>
-                <SidebarRecursive nodes={dropdownListMenu} />
-                <div className='pl-2 pt-3 text-themeColor'>ข้อมูลบริษัท และพนักงาน</div>
-                <SidebarRecursive nodes={companyAndEmployeeMenu} />
+
+                <div className='pl-2 pt-3 text-themeColor'>Customer Order</div>
+                <SidebarRecursive nodes={customerOrderMenu} />
+
+                <div className='pl-2 pt-3 text-themeColor'>Logistic</div>
+                <SidebarRecursive nodes={logisticMenu} />
+
+                <div className='pl-2 pt-3 text-themeColor'>Production</div>
+                <SidebarRecursive nodes={productionMenu} />
+
+                <div className='pl-2 pt-3 text-themeColor'>Admin</div>
+                <SidebarRecursive nodes={adminMenu} />
+
+                <div className='pl-2 pt-3 text-themeColor'>Approve</div>
+                <SidebarRecursive nodes={approveMenu} />
+
                 <div className='pl-2 pt-3 opacity-0 select-none'>Hidden</div>
                 <SidebarRecursive nodes={othersMenu} />
             </div>
