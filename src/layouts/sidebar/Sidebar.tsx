@@ -13,6 +13,7 @@ import SidebarRecursive from './SidebarRecursive';
 import { GoGraph } from 'react-icons/go';
 import { FaMinus } from 'react-icons/fa6';
 import { IoDocumentTextOutline, IoStorefrontOutline, IoCalendarOutline } from 'react-icons/io5';
+import { PiWrench } from 'react-icons/pi';
 import { LuClock8 } from 'react-icons/lu';
 import { PiTruckLight, PiLockers } from 'react-icons/pi';
 import { TbBuildingCommunity } from 'react-icons/tb';
@@ -33,6 +34,7 @@ type Node = {
     path?: string;
     relatePath?: string[];
     noSubMenu?: boolean;
+    // noSubMenu ระบุให้เป็น true เฉพาะกรณีที่ 1. node ด้านนอกสุดเป็น empty array และ 2. node ด้านในมี relatePath นอกจาก 2 กรณีนี้ไม่ต้องกำหนด (ปล่อยให้เป็น undefined)
 };
 
 export default function Sidebar({ className }: { className?: string }) {
@@ -77,31 +79,41 @@ export default function Sidebar({ className }: { className?: string }) {
                 {
                     name: 'ใบ PO ทั้งหมด',
                     reactIcon: FaMinus,
-                    path: '/claim-history-lists',
-                    relatePath: ['/claim-history-lists/edit'],
+                    path: '/purchase-order-list',
+                    relatePath: ['/edit-purchase-order', '/preview-purchase-order', '/edit/verify-purchase-order'],
                     noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มใบ PO',
                     reactIcon: FaMinus,
-                    path: '/add-claim-history',
+                    path: '/add-purchase-order',
+                    relatePath: ['/add/verify-purchase-order'],
                     noSubMenu: true,
                 },
+            ],
+            reactIcon: IoDocumentTextOutline,
+            relatePath: ['/purchase-order-list', '/add-purchase-order', '/edit-purchase-order', '/preview-purchase-order', '/add/verify-purchase-order', '/edit/verify-purchase-order'],
+        },
+        {
+            name: 'ส่งซ่อม / คืน / เปลี่ยน',
+            nodes: [
                 {
                     name: 'รายการส่งซ่อม / คืน / เปลี่ยน',
                     reactIcon: FaMinus,
-                    path: '/add-claim-history',
+                    path: '/claim-list',
+                    relatePath: ['/edit-claim', '/preview-claim', '/edit/verify-claim'],
                     noSubMenu: true,
                 },
                 {
                     name: 'ส่งซ่อม / คืน / เปลี่ยน',
                     reactIcon: FaMinus,
-                    path: '/add-claim-history',
+                    path: '/add-claim',
+                    relatePath: ['/add/verify-claim'],
                     noSubMenu: true,
                 },
             ],
-            reactIcon: IoDocumentTextOutline,
-            relatePath: ['/', '/claim-history-lists', '/claim-history-lists/edit', '/add-claim-history'],
+            reactIcon: PiWrench,
+            relatePath: ['/claim-list', '/add-claim', '/edit-claim', '/preview-claim', '/add/verify-claim', '/edit/verify-claim'],
         },
     ];
     const logisticMenu: Node[] = [
@@ -166,7 +178,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'รถขนสินค้าทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/transport-truck-list',
-                    relatePath: ['/edit-transport-truck/'],
+                    relatePath: ['/edit-transport-truck'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มรถขนสินค้า',
@@ -175,7 +188,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: PiTruckLight,
-            relatePath: ['/transport-truck-list', '/add-transport-truck', '/edit-transport-truck/'],
+            relatePath: ['/transport-truck-list', '/add-transport-truck', '/edit-transport-truck'],
         },
         {
             name: 'กลุ่มร้านค้า',
@@ -184,7 +197,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'กลุ่มร้านค้าทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/customer-group-list',
-                    relatePath: ['/edit-customer-group/'],
+                    relatePath: ['/edit-customer-group'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มกลุ่มร้านค้า',
@@ -193,7 +207,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: TbBuildingCommunity,
-            relatePath: ['/customer-group-list', '/add-customer-group', '/edit-customer-group/'],
+            relatePath: ['/customer-group-list', '/add-customer-group', '/edit-customer-group'],
         },
         {
             name: 'ร้านค้าในระบบ',
@@ -202,7 +216,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'ร้านค้าในระบบทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/customer-list',
-                    relatePath: ['/edit-customer/'],
+                    relatePath: ['/edit-customer'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มร้านค้าในระบบ',
@@ -211,7 +226,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: IoStorefrontOutline,
-            relatePath: ['/customer-list', '/add-customer', '/edit-customer/'],
+            relatePath: ['/customer-list', '/add-customer', '/edit-customer'],
         },
         {
             name: 'ประเภทสินค้า',
@@ -220,7 +235,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'ประเภทสินค้าทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/product-type-list',
-                    relatePath: ['/edit-product-type/'],
+                    relatePath: ['/edit-product-type'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มประเภทสินค้า',
@@ -229,7 +245,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: MdOutlineCategory,
-            relatePath: ['/product-type-list', '/add-product-type', '/edit-product-type/'],
+            relatePath: ['/product-type-list', '/add-product-type', '/edit-product-type'],
         },
         {
             name: 'ประเภทสินค้าย่อย',
@@ -238,7 +254,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'ประเภทสินค้าย่อยทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/product-subtype-list',
-                    relatePath: ['/edit-product-subtype/'],
+                    relatePath: ['/edit-product-subtype'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มประเภทสินค้าย่อย',
@@ -247,7 +264,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: BiCategoryAlt,
-            relatePath: ['/product-subtype-list', '/add-product-subtype', '/edit-product-subtype/'],
+            relatePath: ['/product-subtype-list', '/add-product-subtype', '/edit-product-subtype'],
         },
         {
             name: 'รายการสินค้า',
@@ -256,7 +273,8 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'รายการสินค้าทั้งหมด',
                     reactIcon: FaMinus,
                     path: '/product-list',
-                    relatePath: ['/edit-product/'],
+                    relatePath: ['/edit-product'],
+                    noSubMenu: true,
                 },
                 {
                     name: 'เพิ่มรายการสินค้า',
@@ -265,7 +283,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: PiLockers,
-            relatePath: ['/product-list', '/add-product', '/edit-product/'],
+            relatePath: ['/product-list', '/add-product', '/edit-product'],
         },
     ];
     const approveMenu: Node[] = [
@@ -276,41 +294,41 @@ export default function Sidebar({ className }: { className?: string }) {
                     name: 'กทม และปริมณฑล',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
                 {
                     name: 'เหนือ',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
                 {
                     name: 'อีสาน',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
                 {
                     name: 'กลาง',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
                 {
                     name: 'ตะวันออก',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
                 {
                     name: 'ใต้',
                     reactIcon: FaMinus,
                     path: '/work-order-lists',
-                    relatePath: ['/preview-work-order/', '/work-order-lists/edit'],
+                    relatePath: ['/preview-work-order', '/work-order-lists/edit'],
                 },
             ],
             reactIcon: IoStorefrontOutline,
-            relatePath: ['/work-order-lists', '/work-order-lists/edit', '/preview-work-order/', '/create-work-order'],
+            relatePath: ['/work-order-lists', '/work-order-lists/edit', '/preview-work-order', '/create-work-order'],
         },
         {
             name: 'แผนการผลิต AP',
