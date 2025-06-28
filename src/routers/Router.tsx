@@ -3,11 +3,40 @@ import type { RootState } from '../store/Store';
 import { useSelector } from 'react-redux';
 // import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
 
-
 import Login from '../pages/login/Login';
 import Example from '../pages/Example';
 import Header from '../layouts/header/Header';
 import Sidebar from '../layouts/sidebar/Sidebar';
+
+// Admin Transport Truck
+import AddTransportTruck from '../pages/admin/transportTruck/AddTransportTruck';
+import EditTransportTruck from '../pages/admin/transportTruck/EditTransportTruck';
+import TransportTruckList from '../pages/admin/transportTruck/TransportTruckList';
+
+// Admin Customer Group
+import AddCustomerGroup from '../pages/admin/customerGroup/AddCustomerGroup';
+import EditCustomerGroup from '../pages/admin/customerGroup/EditCustomerGroup';
+import CustomerGroupList from '../pages/admin/customerGroup/CustomerGroupList';
+
+// Admin Customer
+import AddCustomer from '../pages/admin/customer/AddCustomer';
+import EditCustomer from '../pages/admin/customer/EditCustomer';
+import CustomerList from '../pages/admin/customer/CustomerList';
+
+// Admin Product Type
+import AddProductType from '../pages/admin/productType/AddProductType';
+import EditProductType from '../pages/admin/productType/EditProductType';
+import ProductTypeList from '../pages/admin/productType/ProductTypeList';
+
+// Admin Product Subtype
+import AddProductSubtype from '../pages/admin/productSubtype/AddProductSubtype';
+import EditProductSubtype from '../pages/admin/productSubtype/EditProductSubtype';
+import ProductSubtypeList from '../pages/admin/productSubtype/ProductSubtypeList';
+
+// Admin Product
+import AddProduct from '../pages/admin/product/AddProduct';
+import EditProduct from '../pages/admin/product/EditProduct';
+import ProductList from '../pages/admin/product/ProductList';
 
 export default function Router() {
 
@@ -27,9 +56,34 @@ export default function Router() {
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/' element={<Example />} />
+                        {/* Admin */}
+                        <Route path='/add-transport-truck' element={<AddTransportTruck />} />
+                        <Route path='/edit-transport-truck/:id' element={<EditTransportTruck />} />
+                        <Route path='/transport-truck-list' element={<TransportTruckList />} />
+
+                        <Route path='/add-customer-group' element={<AddCustomerGroup />} />
+                        <Route path='/edit-customer-group/:id' element={<EditCustomerGroup />} />
+                        <Route path='/customer-group-list' element={<CustomerGroupList />} />
+
+                        <Route path='/add-customer' element={<AddCustomer />} />
+                        <Route path='/edit-customer/:id' element={<EditCustomer />} />
+                        <Route path='/customer-list' element={<CustomerList />} />
+
+                        <Route path='/add-product-type' element={<AddProductType />} />
+                        <Route path='/edit-product-type/:id' element={<EditProductType />} />
+                        <Route path='/product-type-list' element={<ProductTypeList />} />
+
+                        <Route path='/add-product-subtype' element={<AddProductSubtype />} />
+                        <Route path='/edit-product-subtype/:id' element={<EditProductSubtype />} />
+                        <Route path='/product-subtype-list' element={<ProductSubtypeList />} />
+
+                        <Route path='/add-product' element={<AddProduct />} />
+                        <Route path='/edit-product/:id' element={<EditProduct />} />
+                        <Route path='/product-list' element={<ProductList />} />
+
                         {/*
                             <Route element={<AuthOutlet fallbackPath='/login' />}>
-                            </Route>
+                            </Route>    
                         */}
                     </Routes>
                 </div>
