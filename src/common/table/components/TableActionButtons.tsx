@@ -1,3 +1,4 @@
+import React from 'react';
 import { FiEdit3 } from 'react-icons/fi';
 import { FaRegTrashCan } from 'react-icons/fa6';
 
@@ -6,6 +7,7 @@ import OutlinedButton from '../../button/OutlinedButton';
 
 // Type
 import type { Data } from '../../../types/common/tableTypes';
+import type { IconType } from 'react-icons/lib';
 
 type TableActionButtonsProps = {
     editButtonText?: string;
@@ -14,6 +16,9 @@ type TableActionButtonsProps = {
     hasEditBtn?: boolean;
     hasExtraBtn?: boolean;
     hasDeleteBtn?: boolean;
+    editButtonIcon?: IconType;
+    extraButtonIcon?: IconType;
+    deleteButtonIcon?: IconType;
     element: Data;
     keyNameOfId: string;
     editOnClick: (id: string | number) => void;
@@ -28,6 +33,9 @@ export default function TableActionButtons({
     hasEditBtn = true,
     hasExtraBtn = false,
     hasDeleteBtn = true,
+    editButtonIcon,
+    extraButtonIcon,
+    deleteButtonIcon,
     element,
     keyNameOfId,
     editOnClick = () => { },
@@ -43,7 +51,7 @@ export default function TableActionButtons({
                     textColor='text-themeColor'
                     bgColor='bg-themeColor'
                     borderColor='border-themeColor'
-                    reactIcon={<FiEdit3 />}
+                    reactIcon={editButtonIcon ? React.createElement(editButtonIcon) : <FiEdit3 />}
                     onClick={() => editOnClick(element[keyNameOfId])}
                 />
             )}
@@ -54,6 +62,7 @@ export default function TableActionButtons({
                     textColor='text-emeraldGreen'
                     bgColor='bg-emeraldGreen'
                     borderColor='border-emeraldGreen'
+                    reactIcon={extraButtonIcon ? React.createElement(extraButtonIcon) : undefined}
                     onClick={() => extraOnClick(element[keyNameOfId])}
                 />
             )}
@@ -64,7 +73,7 @@ export default function TableActionButtons({
                     textColor='text-alarmRed'
                     bgColor='bg-alarmRed'
                     borderColor='border-alarmRed'
-                    reactIcon={<FaRegTrashCan />}
+                    reactIcon={deleteButtonIcon ? React.createElement(deleteButtonIcon) : <FaRegTrashCan />}
                     onClick={() => deleteOnClick(element[keyNameOfId])}
                 />
             )}

@@ -13,6 +13,7 @@ import CurrentRowsInformation from './components/CurrentRowsInformation';
 // css
 import styles from './Table.module.css';
 import type { Data, FormattedDataKey, TableHead } from '../../types/common/tableTypes';
+import type { IconType } from 'react-icons/lib';
 
 
 type TablePrimaryProps = {
@@ -22,12 +23,15 @@ type TablePrimaryProps = {
     keyNameOfId: string;
     hasEditBtn?: boolean;
     editButtonText?: string;
+    editButtonIcon?: IconType;
     editOnClick?: (id: string | number) => void;
     hasExtraBtn?: boolean;
     extraButtonText?: string;
+    extraButtonIcon?: IconType;
     extraOnClick?: (id: string | number) => void;
     hasDeleteBtn?: boolean;
     deleteButtonText?: string;
+    deleteButtonIcon?: IconType;
     deleteOnClick?: (id: string | number) => void;
 }
 
@@ -38,12 +42,15 @@ export default function TablePrimary({
     keyNameOfId = 'id',
     hasEditBtn = true,
     editButtonText,
+    editButtonIcon,
     editOnClick = () => { },
     hasExtraBtn = false,
     extraButtonText,
+    extraButtonIcon,
     extraOnClick = () => { },
     hasDeleteBtn = true,
     deleteButtonText,
+    deleteButtonIcon,
     deleteOnClick = () => { },
 }: TablePrimaryProps) {
 
@@ -102,6 +109,9 @@ export default function TablePrimary({
                                         hasEditBtn={hasEditBtn}
                                         hasExtraBtn={hasExtraBtn}
                                         hasDeleteBtn={hasDeleteBtn}
+                                        editButtonIcon={editButtonIcon}
+                                        extraButtonIcon={extraButtonIcon}
+                                        deleteButtonIcon={deleteButtonIcon}
                                         element={element}
                                         keyNameOfId={keyNameOfId}
                                         editOnClick={targetedElement => editOnClick(targetedElement)}

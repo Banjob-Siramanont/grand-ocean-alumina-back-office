@@ -8,6 +8,8 @@ import SelectSecondary from '../common/select/SelectSecondary';
 import TablePrimary from '../common/table/TablePrimary';
 import Topic from '../common/topic/Topic';
 import TopicOfPage from '../common/topic/TopicOfPage';
+import { FaUserGroup } from 'react-icons/fa6';
+import { GoGraph } from 'react-icons/go';
 
 const mockupDatas4 = [
     {
@@ -151,6 +153,8 @@ export default function Example() {
                     { tHeadTiltle: 'Action', cssTextAlign: 'center' },
                 ]}
                 keyNameOfId='_id'
+                editButtonIcon={GoGraph}
+                deleteButtonIcon={FaUserGroup}
                 editButtonText='next step'
                 deleteButtonText='back step'
                 editOnClick={id => console.log('edit', id)}
