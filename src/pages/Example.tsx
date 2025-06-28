@@ -5,15 +5,69 @@ import InputPrimary from '../common/input/InputPrimary';
 import InputSecondary from '../common/input/InputSecondary';
 import SelectPrimary from '../common/select/SelectPrimary';
 import SelectSecondary from '../common/select/SelectSecondary';
+import TablePrimary from '../common/table/TablePrimary';
 import Topic from '../common/topic/Topic';
 import TopicOfPage from '../common/topic/TopicOfPage';
+
+const mockupDatas4 = [
+    {
+        _id: '01',
+        no: 1,
+        product_name: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีขาว',
+        step1: '✓',
+        step2: '✓',
+        step3: '✓',
+        step4: '✓',
+        step5: '✓',
+    },
+    {
+        _id: '02',
+        no: 2,
+        product_name: 'โต๊ะทำงาน Modern Desk MD-2024 120x60x75 ซม. สีดำ',
+        step1: '✓',
+        step2: '✓',
+        step3: '✓',
+        step4: '',
+        step5: '',
+    },
+    {
+        _id: '03',
+        no: 3,
+        product_name: 'เก้าอี้สำนักงาน Office Chair OC-500 สีเทา',
+        step1: '✓',
+        step2: '✓',
+        step3: '',
+        step4: '',
+        step5: '',
+    },
+    {
+        _id: '04',
+        no: 4,
+        product_name: 'ชั้นวางของ Storage Shelf SS-150 80x40x180 ซม. สีน้ำตาล',
+        step1: '✓',
+        step2: '',
+        step3: '',
+        step4: '',
+        step5: '',
+    },
+    {
+        _id: '05',
+        no: 5,
+        product_name: 'โซฟา 2 ที่นั่ง Comfort Sofa CS-250 สีครีม',
+        step1: '',
+        step2: '',
+        step3: '',
+        step4: '',
+        step5: '',
+    },
+];
 
 export default function Example() {
     return (
         <>
             <TopicOfPage text='Example Page' />
             <Topic text='Input Components Example' />
-            <div>primary input design</div>
+            <div className='dark:text-white'>primary input design</div>
             <div className='grid grid-cols-3 gap-4'>
                 <InputDateAndTime
                     type='date'
@@ -43,7 +97,7 @@ export default function Example() {
                     textHelper='test'
                 />
             </div>
-            <div className='mt-4'>secondary input design</div>
+            <div className='mt-4 dark:text-white'>secondary input design</div>
             <div className='grid grid-cols-3 gap-4'>
                 <InputSecondary
                     placeholder='หมายเหตุ'
@@ -82,6 +136,25 @@ export default function Example() {
                 bgColor='bg-alarmRed'
                 borderColor='border-alarmRed'
                 onClick={() => console.log('Submitted')}
+            />
+            <TablePrimary
+                data={mockupDatas4}
+                rowsPerPage={200}
+                tHeadDatas={[
+                    { tHeadTiltle: 'No', cssTextAlign: 'center', key: 'no' },
+                    { tHeadTiltle: 'ชื่อสินค้า', cssTextAlign: 'left', key: 'product_name' },
+                    { tHeadTiltle: 'โครง', cssTextAlign: 'center', key: 'step1' },
+                    { tHeadTiltle: 'ท็อป', cssTextAlign: 'center', key: 'step2' },
+                    { tHeadTiltle: 'คอ', cssTextAlign: 'center', key: 'step3' },
+                    { tHeadTiltle: 'บาน', cssTextAlign: 'center', key: 'step4' },
+                    { tHeadTiltle: 'ยิงหลัง', cssTextAlign: 'center', key: 'step5' },
+                    { tHeadTiltle: 'Action', cssTextAlign: 'center' },
+                ]}
+                keyNameOfId='_id'
+                editButtonText='next step'
+                deleteButtonText='back step'
+                editOnClick={id => console.log('edit', id)}
+                deleteOnClick={id => console.log('delete', id)}
             />
         </>
     )
