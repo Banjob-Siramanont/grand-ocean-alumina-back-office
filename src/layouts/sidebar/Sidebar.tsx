@@ -383,22 +383,22 @@ export default function Sidebar({ className }: { className?: string }) {
                 )} */}
                 <SidebarRecursive nodes={dashboardMenu} />
 
-                <div className='pl-2 pt-3 text-themeColor'>Customer Order</div>
+                <div className='pl-4 pt-3 text-themeColor'>Customer Order</div>
                 <SidebarRecursive nodes={customerOrderMenu} />
 
-                <div className='pl-2 pt-3 text-themeColor'>Logistic</div>
+                <div className='pl-4 pt-3 text-themeColor'>Logistic</div>
                 <SidebarRecursive nodes={logisticMenu} />
 
-                <div className='pl-2 pt-3 text-themeColor'>Production</div>
+                <div className='pl-4 pt-3 text-themeColor'>Production</div>
                 <SidebarRecursive nodes={productionMenu} />
 
-                <div className='pl-2 pt-3 text-themeColor'>Admin</div>
+                <div className='pl-4 pt-3 text-themeColor'>Admin</div>
                 <SidebarRecursive nodes={adminMenu} />
 
-                <div className='pl-2 pt-3 text-themeColor'>Approve</div>
+                <div className='pl-4 pt-3 text-themeColor'>Approve</div>
                 <SidebarRecursive nodes={approveMenu} />
 
-                <div className='pl-2 pt-3 opacity-0 select-none'>Hidden</div>
+                <div className='pl-4 pt-3 opacity-0 select-none'>Hidden</div>
                 <SidebarRecursive nodes={othersMenu} />
             </div>
         </div>
