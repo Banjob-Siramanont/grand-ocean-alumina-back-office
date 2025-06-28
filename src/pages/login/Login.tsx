@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
 
 
 export default function Login() {
