@@ -2,7 +2,6 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 
-
 export default function Login() {
 
     const signIn = useSignIn();
@@ -28,19 +27,17 @@ export default function Login() {
             text: '',
             icon: 'success',
             timer: 2000,
-            confirmButtonColor: 'var(--color-orange)',
+            confirmButtonColor: 'var(--color-themeColor)',
             confirmButtonText: 'OK'
         }).then(() => (window.location as Location).href = '/');
     }
 
-
     return (
         <>
-
             <form className='flex justify-center items-center h-[95vh]'>
-                <div className='grid grid-cols-1 gap-y-8 dark:text-smoothWhite max-w-[600px]'>
+                <div className='grid grid-cols-1 gap-y-8 dark:text-white max-w-[600px]'>
                     <div className='grid grid-cols-1 gap-y-2'>
-                        <div className='text-orange text-center font-bold text-[40px] max-[600px]:text-[25px]'>K.T. Yanyont Login</div>
+                        <div className='text-themeColor text-center font-bold text-[40px] max-[600px]:text-[25px]'>Grand Ocean Alumina Login</div>
                         <div className='grid grid-cols-1 gap-y-0.5'>
                             <label>เบอร์โทรศัพท์</label>
                             <input
@@ -66,7 +63,7 @@ export default function Login() {
                     </div>
                     <div
                         onClick={() => handleSignIn()}
-                        className='clickable text-center bg-orange rounded-lg py-1 cursor-pointer'
+                        className='clickable text-center text-white bg-themeColor rounded-lg py-1 cursor-pointer'
                     >
                         Login
                     </div>
