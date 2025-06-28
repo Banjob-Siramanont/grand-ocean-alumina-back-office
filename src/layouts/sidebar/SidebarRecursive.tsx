@@ -96,11 +96,13 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
         }
     };
 
+
+
     return (
         <li
             className={`
                 rounded-md mt-1 hover:text-black hover:bg-white dark:hover:bg-secondaryBlack dark:hover:text-white transition-colors duration-200
-                ${node.relatePath?.includes(currentLocation) ?
+                ${node.relatePath?.includes(currentLocation) && !node.noSubMenu ?
                     'bg-white border border-lightGrey dark:bg-secondaryBlack dark:border-oceanGrey dark:text-white' :
                     'text-grey dark:text-oceanGrey'
                 }
@@ -124,8 +126,8 @@ function FileSystemItem({ node, parentRelatePath }: { node: Node; parentRelatePa
                     <button
                         className={`
                             w-full rounded-md hover:text-themeColor transition-colors duration-200
-                            ${node.path === currentLocation && node.noSubMenu ? 'bg-white dark:bg-secondaryBlack border border-lightGrey dark:border-oceanGrey' : ''}
-                            ${node.path === currentLocation ?
+                            ${node.path === currentLocation && node.noSubMenu && node.relatePath === undefined ? 'bg-white dark:bg-secondaryBlack border border-lightGrey dark:border-oceanGrey' : ''}
+                            ${node.path === currentLocation || node.relatePath?.includes(currentLocation) ?
                                 'text-themeColor' :
                                 parentRelatePath?.includes(currentLocation) ? 'text-black dark:text-white' : 'text-grey dark:text-oceanGrey'
                             }
