@@ -166,7 +166,7 @@ export default function Sidebar({ className }: { className?: string }) {
         {
             name: 'แผนการผลิต',
             reactIcon: LuClock8,
-            path: '/dashboard',
+            path: '/production-plan',
             noSubMenu: true,
         },
     ];
@@ -381,6 +381,7 @@ export default function Sidebar({ className }: { className?: string }) {
             <div className='sticky top-0.5 max-h-sidebarHeight overflow-auto hide-scrollbar'>
                 {/* {is_admin && (
                 )} */}
+                <div className='pl-4 pt-3 text-themeColor'>Dashboard</div>
                 <SidebarRecursive nodes={dashboardMenu} />
 
                 <div className='pl-4 pt-3 text-themeColor'>Customer Order</div>

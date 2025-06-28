@@ -29,6 +29,9 @@ import North from '../pages/logistic/customer/North';
 import Northeast from '../pages/logistic/customer/Northeast';
 import LogisticPlan from '../pages/logistic/logisticPlan/LogisticPlan';
 
+// Production
+import ProductionPlan from '../pages/production/productionPlan/ProductionPlan';
+
 // Admin Transport Truck
 import AddTransportTruck from '../pages/admin/transportTruck/AddTransportTruck';
 import EditTransportTruck from '../pages/admin/transportTruck/EditTransportTruck';
@@ -100,6 +103,9 @@ export default function Router() {
                         <Route path='/logistic-customer-east' element={<East />} />
                         <Route path='/logistic-customer-south' element={<South />} />
                         <Route path='/logistic-plan' element={<LogisticPlan />} />
+
+                        {/* Production */}
+                        <Route path='/production-plan' element={<ProductionPlan />} />
 
                         {/* Admin */}
                         <Route path='/add-transport-truck' element={<AddTransportTruck />} />
