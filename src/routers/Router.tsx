@@ -8,6 +8,15 @@ import Example from '../pages/Example';
 import Header from '../layouts/header/Header';
 import Sidebar from '../layouts/sidebar/Sidebar';
 
+// Logistic
+import South from '../pages/logistic/customer/South';
+import East from '../pages/logistic/customer/East';
+import Bangkok from '../pages/logistic/customer/Bangkok';
+import Central from '../pages/logistic/customer/Central';
+import North from '../pages/logistic/customer/North';
+import Northeast from '../pages/logistic/customer/Northeast';
+import LogisticPlan from '../pages/logistic/logisticPlan/LogisticPlan';
+
 // Admin Transport Truck
 import AddTransportTruck from '../pages/admin/transportTruck/AddTransportTruck';
 import EditTransportTruck from '../pages/admin/transportTruck/EditTransportTruck';
@@ -56,6 +65,16 @@ export default function Router() {
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/' element={<Example />} />
+
+                        {/* Logistic */}
+                        <Route path='/logistic-customer-bangkok' element={<Bangkok />} />
+                        <Route path='/logistic-customer-central' element={<Central />} />
+                        <Route path='/logistic-customer-north' element={<North />} />
+                        <Route path='/logistic-customer-northeast' element={<Northeast />} />
+                        <Route path='/logistic-customer-east' element={<East />} />
+                        <Route path='/logistic-customer-south' element={<South />} />
+                        <Route path='/logistic-plan' element={<LogisticPlan />} />
+
                         {/* Admin */}
                         <Route path='/add-transport-truck' element={<AddTransportTruck />} />
                         <Route path='/edit-transport-truck/:id' element={<EditTransportTruck />} />
