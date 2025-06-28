@@ -62,6 +62,16 @@ import AddProduct from '../pages/admin/product/AddProduct';
 import EditProduct from '../pages/admin/product/EditProduct';
 import ProductList from '../pages/admin/product/ProductList';
 
+// Approve
+import EastAP from '../pages/approve/customer/EastAP';
+import CentralAP from '../pages/approve/customer/CentralAP';
+import BangkokAP from '../pages/approve/customer/BangkokAP';
+import NorthAP from '../pages/approve/customer/NorthAP';
+import SouthAP from '../pages/approve/customer/SouthAP';
+import NortheastAP from '../pages/approve/customer/NortheastAP';
+import ProductionPlanWaitingList from '../pages/approve/productionPlanAP/ProductionPlanWaitingList';
+import ProductionPlanConfirm from '../pages/approve/productionPlanAP/ProductionPlanConfirm';
+
 export default function Router() {
 
     const { isSidebarOpen } = useSelector((state: RootState) => state.sidebarDataStateValue);
@@ -131,6 +141,17 @@ export default function Router() {
                         <Route path='/add-product' element={<AddProduct />} />
                         <Route path='/edit-product' element={<EditProduct />} />
                         <Route path='/product-list' element={<ProductList />} />
+
+                        {/* Approve */}
+                        <Route path='/approve-customer/bangkok' element={<BangkokAP />} />
+                        <Route path='/approve-customer/east' element={<EastAP />} />
+                        <Route path='/approve-customer/central' element={<CentralAP />} />
+                        <Route path='/approve-customer/north' element={<NorthAP />} />
+                        <Route path='/approve-customer/south' element={<SouthAP />} />
+                        <Route path='/approve-customer/northeast' element={<NortheastAP />} />
+
+                        <Route path='/production-plan-waiting-list' element={<ProductionPlanWaitingList />} />
+                        <Route path='/production-plan-confirm' element={<ProductionPlanConfirm />} />
 
                         {/*
                             <Route element={<AuthOutlet fallbackPath='/login' />}>
