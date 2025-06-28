@@ -8,6 +8,18 @@ import Example from '../pages/Example';
 import Header from '../layouts/header/Header';
 import Sidebar from '../layouts/sidebar/Sidebar';
 
+// Customer Order
+import PurchaseOrderList from '../pages/customerOrder/purchaseOrder/PurchaseOrderList';
+import AddPurchaseOrder from '../pages/customerOrder/purchaseOrder/AddPurchaseOrder';
+import EditPurchaseOrder from '../pages/customerOrder/purchaseOrder/EditPurchaseOrder';
+import PreviewPurchaseOrder from '../pages/customerOrder/purchaseOrder/PreviewPurchaseOrder';
+import VerifyPurchaseOrder from '../pages/customerOrder/purchaseOrder/VerifyPurchaseOrder';
+import ClaimList from '../pages/customerOrder/claim/ClaimList';
+import AddClaim from '../pages/customerOrder/claim/AddClaim';
+import EditClaim from '../pages/customerOrder/claim/EditClaim';
+import PreviewClaim from '../pages/customerOrder/claim/PreviewClaim';
+import VerifyClaim from '../pages/customerOrder/claim/VerifyClaim';
+
 // Logistic
 import South from '../pages/logistic/customer/South';
 import East from '../pages/logistic/customer/East';
@@ -65,6 +77,20 @@ export default function Router() {
                     <Routes>
                         <Route path='/login' element={<Login />} />
                         <Route path='/' element={<Example />} />
+                        {/* Customer Order */}
+                        <Route path='/purchase-order-list' element={<PurchaseOrderList />} />
+                        <Route path='/add-purchase-order' element={<AddPurchaseOrder />} />
+                        <Route path='/edit-purchase-order' element={<EditPurchaseOrder />} />
+                        <Route path='/preview-purchase-order' element={<PreviewPurchaseOrder />} />
+                        <Route path='/add/verify-purchase-order' element={<VerifyPurchaseOrder />} />
+                        <Route path='/edit/verify-purchase-order' element={<VerifyPurchaseOrder />} />
+
+                        <Route path='/claim-list' element={<ClaimList />} />
+                        <Route path='/add-claim' element={<AddClaim />} />
+                        <Route path='/edit-claim' element={<EditClaim />} />
+                        <Route path='/preview-claim' element={<PreviewClaim />} />
+                        <Route path='/add/verify-claim' element={<VerifyClaim />} />
+                        <Route path='/edit/verify-claim' element={<VerifyClaim />} />
 
                         {/* Logistic */}
                         <Route path='/logistic-customer-bangkok' element={<Bangkok />} />
@@ -77,27 +103,27 @@ export default function Router() {
 
                         {/* Admin */}
                         <Route path='/add-transport-truck' element={<AddTransportTruck />} />
-                        <Route path='/edit-transport-truck/:id' element={<EditTransportTruck />} />
+                        <Route path='/edit-transport-truck' element={<EditTransportTruck />} />
                         <Route path='/transport-truck-list' element={<TransportTruckList />} />
 
                         <Route path='/add-customer-group' element={<AddCustomerGroup />} />
-                        <Route path='/edit-customer-group/:id' element={<EditCustomerGroup />} />
+                        <Route path='/edit-customer-group' element={<EditCustomerGroup />} />
                         <Route path='/customer-group-list' element={<CustomerGroupList />} />
 
                         <Route path='/add-customer' element={<AddCustomer />} />
-                        <Route path='/edit-customer/:id' element={<EditCustomer />} />
+                        <Route path='/edit-customer' element={<EditCustomer />} />
                         <Route path='/customer-list' element={<CustomerList />} />
 
                         <Route path='/add-product-type' element={<AddProductType />} />
-                        <Route path='/edit-product-type/:id' element={<EditProductType />} />
+                        <Route path='/edit-product-type' element={<EditProductType />} />
                         <Route path='/product-type-list' element={<ProductTypeList />} />
 
                         <Route path='/add-product-subtype' element={<AddProductSubtype />} />
-                        <Route path='/edit-product-subtype/:id' element={<EditProductSubtype />} />
+                        <Route path='/edit-product-subtype' element={<EditProductSubtype />} />
                         <Route path='/product-subtype-list' element={<ProductSubtypeList />} />
 
                         <Route path='/add-product' element={<AddProduct />} />
-                        <Route path='/edit-product/:id' element={<EditProduct />} />
+                        <Route path='/edit-product' element={<EditProduct />} />
                         <Route path='/product-list' element={<ProductList />} />
 
                         {/*
