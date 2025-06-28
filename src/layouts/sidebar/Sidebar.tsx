@@ -28,12 +28,12 @@ import type { AppDispatch, RootState } from '../../store/Store';
 // const { is_admin } = getUserFromCookie();
 
 type Node = {
-    name: string,
-    nodes?: Node[],
-    reactIcon?: IconType,
-    path?: string,
-    relatePath?: string[],
-    noSubMenu?: boolean,
+    name: string;
+    nodes?: Node[];
+    reactIcon?: IconType;
+    path?: string;
+    relatePath?: string[];
+    noSubMenu?: boolean;
 };
 
 export default function Sidebar({ className }: { className?: string }) {

@@ -11,12 +11,12 @@ import type { AppDispatch } from '../../store/Store';
 import type { IconType } from 'react-icons/lib';
 
 type Node = {
-    name: string,
-    nodes?: Node[],
-    reactIcon?: IconType,
-    path?: string,
-    relatePath?: string[],
-    noSubMenu?: boolean,
+    name: string;
+    nodes?: Node[];
+    reactIcon?: IconType;
+    path?: string;
+    relatePath?: string[];
+    noSubMenu?: boolean;
 };
 
 type SidebarProps = {
