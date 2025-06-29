@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
 
 // Helper
@@ -43,12 +43,6 @@ export default function SelectSearchBase({
         ? 'border rounded-md border-lightGrey px-3 pt-2 pb-1.5 w-full transition-transform duration-500 overflow-x-auto bg-white dark:bg-secondaryBlack'
         : 'border-b border-lightGrey px-3 pt-2 pb-1.5 w-full transition-transform duration-500 overflow-x-auto bg-white dark:bg-secondaryBlack';
 
-    const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef?.current && !dropdownRef?.current.contains(event.target as Node)) {
-            setOnDrop(false);
-        }
-    };
-
     const calculatePosition = () => {
         if (!buttonRef.current || !contentRef.current) return;
 
@@ -64,31 +58,27 @@ export default function SelectSearchBase({
         calculatePosition();
     };
 
+    const handleBlur = (event: React.FocusEvent) => {
+        // Only close if focus is moving outside the entire component
+        if (!dropdownRef.current?.contains(event.relatedTarget as Node)) {
+            setTimeout(() => setOnDrop(false), 150);
+        }
+    };
+
     const filteredDatas = optionDatas.filter(optionData =>
         optionData[keyDisplayValue]?.toLowerCase().includes(searchValue?.toLowerCase())
     );
-
-    useEffect(() => {
-        if (onDrop) document.addEventListener('mousedown', handleClickOutside);
-        else document.removeEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [onDrop]);
 
     useEffect(() => {
         calculatePosition();
     }, [optionDatas, searchValue]);
 
     useEffect(() => {
-        if (onDrop && inputRef.current) {
-            inputRef.current.focus();
-        }
+        if (onDrop && inputRef.current) inputRef.current.focus();
     }, [onDrop]);
 
     return (
-        <div className={`dark:text-white font-light relative ${className}`} ref={dropdownRef}>
+        <div className={`dark:text-white font-light relative ${className}`} ref={dropdownRef} tabIndex={0} onBlur={handleBlur}>
             <form
                 ref={buttonRef}
                 className={formClassName}
