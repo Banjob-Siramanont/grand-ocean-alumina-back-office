@@ -44,6 +44,7 @@ export default function BasicInformation({
     setMaximumWeight,
     setStatus
 }: BasicInformationProps) {
+
     return (
         <>
             <Topic text='ข้อมูลรถขนสินค้า' />
