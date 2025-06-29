@@ -19,7 +19,7 @@ export default function ExcelUploadButton() {
         //     body: JSON.stringify({ excelFile }),
         // });
         console.log('excelFile', excelFile);
-        return { status: 'OK', client_message: 'ไฟล์อัพโหลดสำเร็จ' }; // Mock response, replace with actual response handling
+        return { status: 'OK', client_message: 'ไฟล์อัพโหลดสำเร็จ', data: excelFile }; // Mock response, replace with actual response handling
     }
 
     const patchUpdateByExcel = async (excelFile: string) => {
@@ -28,7 +28,7 @@ export default function ExcelUploadButton() {
             if (response.status === 'OK') {
                 Swal.fire({
                     title: 'ดำเนินการสำเร็จ',
-                    text: response.client_message,
+                    text: `file แบบ base64 : ${response.data}`,
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 3000,
