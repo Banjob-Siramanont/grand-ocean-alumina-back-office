@@ -17,7 +17,7 @@ export default function UploadExcel() {
             </ul>
             <div className='flex justify-start items-center gap-2 cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
                 <div className='font-semibold dark:text-white'>คำอธิบายหัวข้อการอัพโหลด</div>
-                <IoChevronDown className={`${isOpen ? 'rotate-180' : ''} transition-transform duration-[400ms]`} />
+                <IoChevronDown className={`${isOpen ? 'rotate-180' : ''} transition-transform duration-[400ms] dark:text-white`} />
 
             </div>
             {isOpen && (
