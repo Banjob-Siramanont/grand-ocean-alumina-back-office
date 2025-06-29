@@ -21,12 +21,12 @@ const statusOptionsDatas = [
 
 type BasicInformationProps = {
     name: string;
-    type: string;
+    selectedType: string;
     licensePlate: string;
     maximumWeight: string;
     status: string;
     setName: (value: string) => void;
-    setType: (value: string) => void;
+    setSelectedType: (value: string) => void;
     setLicensePlate: (value: string) => void;
     setMaximumWeight: (value: string) => void;
     setStatus: (value: string) => void;
@@ -34,12 +34,12 @@ type BasicInformationProps = {
 
 export default function BasicInformation({
     name,
-    type,
+    selectedType,
     licensePlate,
     maximumWeight,
     status,
     setName,
-    setType,
+    setSelectedType,
     setLicensePlate,
     setMaximumWeight,
     setStatus
@@ -59,10 +59,10 @@ export default function BasicInformation({
                 <SelectPrimary
                     labelTag='ประเภทรถ'
                     optionDatas={typeOptionsDatas}
-                    selectedValue={type}
+                    selectedValue={selectedType}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => setType(value as string)}
+                    onChange={value => setSelectedType(value as string)}
                 />
                 <InputPrimary
                     labelTag='เลขทะเบียน'

@@ -8,7 +8,7 @@ import CardPrimary from '../../../common/card/CardPrimary';
 
 export default function AddTransportTruck() {
     const [name, setName] = useState('');
-    const [type, setType] = useState('');
+    const [selectedType, setSelectedType] = useState('');
     const [licensePlate, setLicensePlate] = useState('');
     const [maximumWeight, setMaximumWeight] = useState('');
     const [status, setStatus] = useState('');
@@ -21,12 +21,12 @@ export default function AddTransportTruck() {
             <CardPrimary>
                 <BasicInformation
                     name={name}
-                    type={type}
+                    selectedType={selectedType}
                     licensePlate={licensePlate}
                     maximumWeight={maximumWeight}
                     status={status}
                     setName={setName}
-                    setType={setType}
+                    setSelectedType={setSelectedType}
                     setLicensePlate={setLicensePlate}
                     setMaximumWeight={setMaximumWeight}
                     setStatus={setStatus}
