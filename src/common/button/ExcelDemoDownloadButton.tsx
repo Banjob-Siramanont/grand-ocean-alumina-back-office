@@ -13,15 +13,15 @@ export default function ExcelDemoDownloadButton() {
 
         // Define the header row
         worksheet.columns = [
-            { header: 'รหัสสินค้า', key: 'id', width: 10 },
-            { header: 'ชื่อสินค้า', key: 'product_name', width: 20 },
-            { header: 'หน่วยนับ', key: 'product_unit', width: 20 },
-            { header: 'น้ำหนักสินค้า (kg)', key: 'product_weight', width: 20 },
-            { header: 'ประเภทสินค้า', key: 'product_type', width: 15 },
-            { header: 'ประเภทสินค้าย่อย', key: 'product_subtype', width: 30 },
-            { header: 'Line ที่ผลิตได้', key: 'production_line', width: 10 },
-            { header: 'กลุ่มร้านค้า', key: 'customer_group', width: 20 },
-            { header: 'ราคาสินค้า / หน่วย (บาท)', key: 'product_price_per_unit', width: 60 },
+            { header: 'id', key: 'id', width: 10 },
+            { header: 'product_name', key: 'product_name', width: 20 },
+            { header: 'product_unit', key: 'product_unit', width: 20 },
+            { header: 'product_weight', key: 'product_weight', width: 20 },
+            { header: 'product_category', key: 'product_category', width: 20 },
+            { header: 'product_sub_category', key: 'product_sub_category', width: 25 },
+            { header: 'production_line', key: 'production_line', width: 20 },
+            { header: 'store_group', key: 'store_group', width: 20 },
+            { header: 'product_price_per_unit', key: 'product_price_per_unit', width: 25 },
         ];
 
         // Create a buffer and write the file
@@ -34,7 +34,6 @@ export default function ExcelDemoDownloadButton() {
 
     return (
         <OutlinedButton
-            className='text-sm'
             text='ดาวน์โหลดไฟล์หัวข้อ'
             textColor='text-excelGreen'
             bgColor='bg-excelGreen'
