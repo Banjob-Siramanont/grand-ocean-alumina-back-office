@@ -30,7 +30,7 @@ export default function OutlinedButton({
             onClick={onClick}
             className={`
                 ${className}
-                flex justify-center items-center gap-x-1.5 rounded-lg px-4 py-1 select-none break-all transition-colors duration-150
+                flex justify-center items-center gap-x-1.5 rounded-lg px-4 py-0.5 select-none break-all transition-colors duration-150
                 ${disabled ?
                     'bg-lightGrey border border-lightGrey text-grey' :
                     `clickable cursor-pointer border ${borderColor} ${textColor} hover:${bgColor} hover:text-white`
@@ -49,4 +49,5 @@ export default function OutlinedButton({
     hover:bg-alarmRed
     hover:bg-themeColor
     hover:bg-emeraldGreen
+    hover:bg-excelGreen
 */
