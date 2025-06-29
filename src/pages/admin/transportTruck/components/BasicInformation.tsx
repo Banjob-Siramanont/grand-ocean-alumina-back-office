@@ -8,6 +8,14 @@ import SelectPrimary from '../../../../common/select/SelectPrimary';
 // Helper
 import { numericWithoutText } from '../../../../helper/utils/validation';
 
+export type TransportTruckData = {
+    name: string;
+    selectedType: string;
+    licensePlate: string;
+    maximumWeight: string;
+    status: string;
+};
+
 const typeOptionsDatas = [
     { value: '4w', displayValue: 'รถบรรทุก 4 ล้อ' },
     { value: '6w', displayValue: 'รถบรรทุก 6 ล้อ' },
@@ -20,30 +28,21 @@ const statusOptionsDatas = [
 ];
 
 type BasicInformationProps = {
-    name: string;
-    selectedType: string;
-    licensePlate: string;
-    maximumWeight: string;
-    status: string;
-    setName: (value: string) => void;
-    setSelectedType: (value: string) => void;
-    setLicensePlate: (value: string) => void;
-    setMaximumWeight: (value: string) => void;
-    setStatus: (value: string) => void;
+    transportTruckData: TransportTruckData;
+    onDataChange: (key: keyof TransportTruckData, value: string) => void;
 };
 
 export default function BasicInformation({
-    name,
-    selectedType,
-    licensePlate,
-    maximumWeight,
-    status,
-    setName,
-    setSelectedType,
-    setLicensePlate,
-    setMaximumWeight,
-    setStatus
+    transportTruckData,
+    onDataChange,
 }: BasicInformationProps) {
+    const {
+        name,
+        selectedType,
+        licensePlate,
+        maximumWeight,
+        status,
+    } = transportTruckData;
 
     return (
         <>
@@ -54,7 +53,7 @@ export default function BasicInformation({
                     type='text'
                     placeholder='กรุณาระบุ'
                     value={name}
-                    onChange={event => setName(event.target.value)}
+                    onChange={event => onDataChange('name', event.target.value)}
                 />
                 <SelectPrimary
                     labelTag='ประเภทรถ'
@@ -62,21 +61,21 @@ export default function BasicInformation({
                     selectedValue={selectedType}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => setSelectedType(value as string)}
+                    onChange={value => onDataChange('selectedType', value as string)}
                 />
                 <InputPrimary
                     labelTag='เลขทะเบียน'
                     type='text'
                     placeholder='กรุณาระบุ'
                     value={licensePlate}
-                    onChange={event => setLicensePlate(event.target.value)}
+                    onChange={event => onDataChange('licensePlate', event.target.value)}
                 />
                 <InputPrimary
                     labelTag='น้ำหนักสูงสุดที่บรรทุกได้ (kg)'
                     type='text'
                     placeholder='กรุณาระบุ'
                     value={maximumWeight}
-                    onChange={event => setMaximumWeight(numericWithoutText(event.target.value))}
+                    onChange={event => onDataChange('maximumWeight', numericWithoutText(event.target.value))}
                 />
                 <SelectPrimary
                     labelTag='สถานะรถขนสินค้า'
@@ -84,7 +83,7 @@ export default function BasicInformation({
                     selectedValue={status}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => setStatus(value as string)}
+                    onChange={value => onDataChange('status', value as string)}
                 />
             </ThreeColumnGrid>
         </>
