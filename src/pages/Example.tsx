@@ -1,5 +1,4 @@
-import ContainedButton from '../common/button/ContainedButton';
-import OutlinedButton from '../common/button/OutlinedButton';
+import CardPrimary from '../common/card/CardPrimary';
 import InputDateAndTime from '../common/input/InputDateAndTime';
 import InputPrimary from '../common/input/InputPrimary';
 import InputSecondary from '../common/input/InputSecondary';
@@ -8,8 +7,9 @@ import SelectSecondary from '../common/select/SelectSecondary';
 import TablePrimary from '../common/table/TablePrimary';
 import Topic from '../common/topic/Topic';
 import TopicOfPage from '../common/topic/TopicOfPage';
-import { FaUserGroup } from 'react-icons/fa6';
-import { GoGraph } from 'react-icons/go';
+import { RxTrackNext } from 'react-icons/rx';
+import { IoPlaySkipBackOutline } from 'react-icons/io5';
+import ActionButtons from './components/ActionButtons';
 
 const mockupDatas4 = [
     {
@@ -69,97 +69,90 @@ export default function Example() {
         <>
             <TopicOfPage text='Example Page' />
             <Topic text='Input Components Example' />
-            <div className='dark:text-white'>primary input design</div>
-            <div className='grid grid-cols-3 gap-4'>
-                <InputDateAndTime
-                    type='date'
-                    labelTag='วันที่เข้าเบิก'
-                    placeholder='กรุณาเลือกวันที่'
-                    value={'2025-06-19'}
-                    onChange={formattedDate => console.log(formattedDate)}
-                    textHelper='aws;edl'
-                />
-                <InputPrimary
-                    labelTag='ผู้ทำเคลม'
-                    placeholder='กรุณาระบุ'
-                    type='text'
-                    value={'John Doe'}
-                    onChange={event => console.log(event.target.value)}
-                    textHelper='aws;edl'
-                />
-                <SelectPrimary
-                    labelTag='สถานะ'
-                    optionDatas={[
-                        { value: 'pending', displayValue: 'รอดำเนินการ' },
-                        { value: 'approved', displayValue: 'อนุมัติ' },
-                        { value: 'rejected', displayValue: 'ปฏิเสธ' },
+            <CardPrimary className='mb-4'>
+                <div className='dark:text-white'>primary input design</div>
+                <div className='grid grid-cols-3 gap-4'>
+                    <InputDateAndTime
+                        type='date'
+                        labelTag='วันที่เข้าเบิก'
+                        placeholder='กรุณาเลือกวันที่'
+                        value={'2025-06-19'}
+                        onChange={formattedDate => console.log(formattedDate)}
+                        textHelper='aws;edl'
+                    />
+                    <InputPrimary
+                        labelTag='ผู้ทำเคลม'
+                        placeholder='กรุณาระบุ'
+                        type='text'
+                        value={'John Doe'}
+                        onChange={event => console.log(event.target.value)}
+                        textHelper='aws;edl'
+                    />
+                    <SelectPrimary
+                        labelTag='สถานะ'
+                        optionDatas={[
+                            { value: 'pending', displayValue: 'รอดำเนินการ' },
+                            { value: 'approved', displayValue: 'อนุมัติ' },
+                            { value: 'rejected', displayValue: 'ปฏิเสธ' },
+                        ]}
+                        selectedValue={''}
+                        onChange={value => console.log(value)}
+                        textHelper='test'
+                    />
+                </div>
+                <div className='mt-4 dark:text-white'>secondary input design</div>
+                <div className='grid grid-cols-3 gap-4'>
+                    <InputSecondary
+                        placeholder='หมายเหตุ'
+                        type='text'
+                        value={''}
+                        onChange={event => console.log(event.target.value)}
+                        textHelper=''
+                    />
+                    <InputSecondary
+                        placeholder='หมายเหตุ'
+                        type='text'
+                        value={'asdf'}
+                        onChange={event => console.log(event.target.value)}
+                        textHelper=''
+                    />
+                    <SelectSecondary
+                        optionDatas={[
+                            { value: 'pending', displayValue: 'รอดำเนินการ' },
+                            { value: 'approved', displayValue: 'อนุมัติ' },
+                            { value: 'rejected', displayValue: 'ปฏิเสธ' },
+                        ]}
+                        selectedValue={''}
+                        onChange={value => console.log(value)}
+                        textHelper='test'
+                    />
+                </div>
+            </CardPrimary>
+            <ActionButtons onClick={() => console.log('Action button clicked')} />
+            <div className='mb-4' />
+            <CardPrimary>
+                <TablePrimary
+                    data={mockupDatas4}
+                    rowsPerPage={200}
+                    tHeadDatas={[
+                        { tHeadTiltle: 'No', cssTextAlign: 'center', key: 'no' },
+                        { tHeadTiltle: 'ชื่อสินค้า', cssTextAlign: 'left', key: 'product_name' },
+                        { tHeadTiltle: 'โครง', cssTextAlign: 'center', key: 'step1' },
+                        { tHeadTiltle: 'ท็อป', cssTextAlign: 'center', key: 'step2' },
+                        { tHeadTiltle: 'คอ', cssTextAlign: 'center', key: 'step3' },
+                        { tHeadTiltle: 'บาน', cssTextAlign: 'center', key: 'step4' },
+                        { tHeadTiltle: 'ยิงหลัง', cssTextAlign: 'center', key: 'step5' },
+                        { tHeadTiltle: 'Action', cssTextAlign: 'center' },
                     ]}
-                    selectedValue={''}
-                    onChange={value => console.log(value)}
-                    textHelper='test'
+                    keyNameOfId='_id'
+                    editButtonIcon={RxTrackNext}
+                    deleteButtonIcon={IoPlaySkipBackOutline}
+                    editButtonText='next step'
+                    deleteButtonText='back step'
+                    editOnClick={id => console.log('edit', id)}
+                    deleteOnClick={id => console.log('delete', id)}
                 />
-            </div>
-            <div className='mt-4 dark:text-white'>secondary input design</div>
-            <div className='grid grid-cols-3 gap-4'>
-                <InputSecondary
-                    placeholder='หมายเหตุ'
-                    type='text'
-                    value={''}
-                    onChange={event => console.log(event.target.value)}
-                    textHelper=''
-                />
-                <InputSecondary
-                    placeholder='หมายเหตุ'
-                    type='text'
-                    value={'asdf'}
-                    onChange={event => console.log(event.target.value)}
-                    textHelper=''
-                />
-                <SelectSecondary
-                    optionDatas={[
-                        { value: 'pending', displayValue: 'รอดำเนินการ' },
-                        { value: 'approved', displayValue: 'อนุมัติ' },
-                        { value: 'rejected', displayValue: 'ปฏิเสธ' },
-                    ]}
-                    selectedValue={''}
-                    onChange={value => console.log(value)}
-                    textHelper='test'
-                />
-            </div>
-            <OutlinedButton
-                text='Submit'
-                textColor='text-themeColor'
-                bgColor='bg-themeColor'
-                borderColor='border-themeColor'
-                onClick={() => console.log('Submitted')}
-            />
-            <ContainedButton
-                text='YouTube'
-                bgColor='bg-alarmRed'
-                borderColor='border-alarmRed'
-                onClick={() => console.log('Submitted')}
-            />
-            <TablePrimary
-                data={mockupDatas4}
-                rowsPerPage={200}
-                tHeadDatas={[
-                    { tHeadTiltle: 'No', cssTextAlign: 'center', key: 'no' },
-                    { tHeadTiltle: 'ชื่อสินค้า', cssTextAlign: 'left', key: 'product_name' },
-                    { tHeadTiltle: 'โครง', cssTextAlign: 'center', key: 'step1' },
-                    { tHeadTiltle: 'ท็อป', cssTextAlign: 'center', key: 'step2' },
-                    { tHeadTiltle: 'คอ', cssTextAlign: 'center', key: 'step3' },
-                    { tHeadTiltle: 'บาน', cssTextAlign: 'center', key: 'step4' },
-                    { tHeadTiltle: 'ยิงหลัง', cssTextAlign: 'center', key: 'step5' },
-                    { tHeadTiltle: 'Action', cssTextAlign: 'center' },
-                ]}
-                keyNameOfId='_id'
-                editButtonIcon={GoGraph}
-                deleteButtonIcon={FaUserGroup}
-                editButtonText='next step'
-                deleteButtonText='back step'
-                editOnClick={id => console.log('edit', id)}
-                deleteOnClick={id => console.log('delete', id)}
-            />
+            </CardPrimary>
         </>
     )
 }
