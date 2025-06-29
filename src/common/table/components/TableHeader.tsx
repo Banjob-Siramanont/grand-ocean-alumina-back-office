@@ -38,7 +38,7 @@ export default function TableHeader({ tHeadDatas, rawData, setRawData }: TableHe
                 {tHeadDatas.map((tHeadData, index) => (
                     <th
                         key={index}
-                        className={`${styles.tableHeader} dark:text-themeColor bg-white dark:bg-primaryBlack border-r last:border-none border-lightGrey dark:border-black`}
+                        className={`${styles.tableHeader} dark:text-themeColor bg-white dark:bg-secondaryBlack border-r last:border-none border-lightGrey dark:border-black`}
                         style={{ textAlign: tHeadData.cssTextAlign }}
                         onClick={() => tHeadData.key && handleSortColumn(tHeadData.key)}
                     >
