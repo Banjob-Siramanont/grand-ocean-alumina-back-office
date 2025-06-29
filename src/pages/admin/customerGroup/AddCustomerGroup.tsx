@@ -11,7 +11,7 @@ export default function AddCustomerGroup() {
 
     return (
         <>
-            <TopicOfPage text='เพิ่มกลุ่มร้านค้า' />
+            <TopicOfPage text='เพิ่มกลุ่มร้านค้า (ใช้กำหนดราคาสินค้าของแต่ละร้านค้า)' />
             <CardPrimary>
                 <BasicInformation
                     name={name}
