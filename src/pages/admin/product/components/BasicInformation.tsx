@@ -1,12 +1,13 @@
 import ThreeColumnGrid from '../../../../common/general/ThreeColumnGrid';
 import InputPrimary from '../../../../common/input/InputPrimary';
 import SelectPrimary from '../../../../common/select/SelectPrimary';
+import SelectSearchPrimary from '../../../../common/select/SelectSearchPrimary';
 import Topic from '../../../../common/topic/Topic';
 
 // Helper
 import { numericWithoutText } from '../../../../helper/utils/validation';
 
-const typeOptionsDatas = [
+const categoryOptionsDatas = [
     { value: 'storage_cabinet', displayValue: 'ตู้เก็บของเอนกประสงค์' },
     { value: 'rice_cabinet', displayValue: 'ตู้กับข้าว' },
     { value: 'gas_stove_cabinet', displayValue: 'ตู้วางเตาแก๊ส' },
@@ -14,7 +15,7 @@ const typeOptionsDatas = [
     { value: 'shoe_cabinet', displayValue: 'ตู้รองเท้า' },
 ];
 
-const subtypeOptionsDatas = [
+const subCategoryOptionsDatas = [
     { value: 'storage_2_door', displayValue: 'ตู้เก็บของ 2 ประตู' },
     { value: 'storage_3_door', displayValue: 'ตู้เก็บของ 3 ประตู' },
     { value: 'rice_small', displayValue: 'ตู้กับข้าวขนาดเล็ก' },
@@ -109,15 +110,15 @@ export default function BasicInformation({
                 />
                 <SelectPrimary
                     labelTag='ประเภทสินค้า'
-                    optionDatas={typeOptionsDatas}
+                    optionDatas={categoryOptionsDatas}
                     selectedValue={selectedProductCategory}
                     keyValue='value'
                     keyDisplayValue='displayValue'
                     onChange={value => onDataChange('selectedProductCategory', value as string)}
                 />
-                <SelectPrimary
+                <SelectSearchPrimary
                     labelTag='ประเภทสินค้าย่อย'
-                    optionDatas={subtypeOptionsDatas}
+                    optionDatas={subCategoryOptionsDatas}
                     selectedValue={selectedProductSubCategory}
                     keyValue='value'
                     keyDisplayValue='displayValue'
