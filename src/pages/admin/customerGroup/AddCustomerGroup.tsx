@@ -6,8 +6,8 @@ import BasicInformation from './components/BasicInformation';
 
 export default function AddCustomerGroup() {
 
-    const [name, setName] = useState('');
-    const [characteristic, setCharacteristic] = useState('');
+    const [name, setName] = useState<string>('');
+    const [characteristic, setCharacteristic] = useState<string>('');
 
     return (
         <>
