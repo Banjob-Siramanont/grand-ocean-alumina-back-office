@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CardPrimary from '../../../common/card/CardPrimary';
 import TopicOfPage from '../../../common/topic/TopicOfPage';
 import BasicInformation, { type BasicInformationData } from './components/BasicInformation';
-import ShippingDestination from './components/ShippingDestination';
+import ShippingDestination, { type ShippingDestinationData } from './components/ShippingDestination';
 import ActionButtons from '../../components/ActionButtons';
 
 export default function AddCustomer() {
@@ -20,7 +20,7 @@ export default function AddCustomer() {
         setBasicInformationData(prev => ({ ...prev, [key]: value }));
     };
 
-    const [shippingDestinationData, setShippingDestinationData] = useState({
+    const [shippingDestinationData, setShippingDestinationData] = useState<ShippingDestinationData>({
         selectedShippingRegion: '',
         selectedShippingProvince: '',
         selectedShippingType: '',
