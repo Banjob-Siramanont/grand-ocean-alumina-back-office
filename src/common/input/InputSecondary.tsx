@@ -1,3 +1,5 @@
+// Component
+import InputBase from './components/InputBase';
 import type { ChangeEvent, HTMLInputTypeAttribute } from 'react';
 
 type InputSecondaryProps = {
@@ -13,29 +15,6 @@ type InputSecondaryProps = {
     maxLength?: number;
 };
 
-export default function InputSecondary({
-    className, labelTag, type, placeholder, value, max, min, maxLength = 250, onChange, textHelper
-}: InputSecondaryProps) {
-
-    return (
-        <div className={className}>
-            <div className='grid grid-cols-1 px-3 py-[7px] font-light border-b border-lightGrey'>
-                <div className='text-inputText dark:text-inputTextDark'>{labelTag}</div>
-                <input
-                    type={type}
-                    placeholder={placeholder}
-                    className='dark:text-white focus:outline-none py-1'
-                    pattern='\d{4}-\d{2}-\d{2}'
-                    value={value}
-                    onChange={onChange}
-                    max={max}
-                    min={min}
-                    maxLength={maxLength}
-                />
-            </div>
-            <div className='text-alarmRed dark:text-warningYellow text-xs'>
-                {textHelper}
-            </div>
-        </div>
-    )
+export default function InputSecondary(props: InputSecondaryProps) {
+    return <InputBase {...props} variant='secondary' />;
 }
