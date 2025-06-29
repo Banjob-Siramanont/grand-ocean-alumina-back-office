@@ -12,8 +12,8 @@ export default function AddProduct() {
         productName: '',
         productUnit: '',
         productWeight: '',
-        selectedProductType: '',
-        selectedProductSubtype: '',
+        selectedProductCategory: '',
+        selectedProductSubCategory: '',
         selectedProductionLine: '',
         selectedCustomerGroup: '',
         productPrice: ''

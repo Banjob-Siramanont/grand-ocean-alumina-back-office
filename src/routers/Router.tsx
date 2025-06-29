@@ -52,15 +52,15 @@ import AddCustomer from '../pages/admin/customer/AddCustomer';
 import EditCustomer from '../pages/admin/customer/EditCustomer';
 import CustomerList from '../pages/admin/customer/CustomerList';
 
-// Admin Product Type
-import AddProductType from '../pages/admin/productType/AddProductType';
-import EditProductType from '../pages/admin/productType/EditProductType';
-import ProductTypeList from '../pages/admin/productType/ProductTypeList';
+// Admin Product Category
+import AddProductCategory from '../pages/admin/productCategory/AddProductCategory';
+import EditProductCategory from '../pages/admin/productCategory/EditProductCategory';
+import ProductCategoryList from '../pages/admin/productCategory/ProductCategoryList';
 
-// Admin Product Subtype
-import AddProductSubtype from '../pages/admin/productSubtype/AddProductSubtype';
-import EditProductSubtype from '../pages/admin/productSubtype/EditProductSubtype';
-import ProductSubtypeList from '../pages/admin/productSubtype/ProductSubtypeList';
+// Admin Product SubCategory
+import AddProductSubCategory from '../pages/admin/productSubCategory/AddProductSubCategory';
+import EditProductSubCategory from '../pages/admin/productSubCategory/EditProductSubCategory';
+import ProductSubCategoryList from '../pages/admin/productSubCategory/ProductSubCategoryList';
 
 // Admin Product
 import AddProduct from '../pages/admin/product/AddProduct';
@@ -140,13 +140,13 @@ export default function Router() {
                         <Route path='/edit-customer' element={<EditCustomer />} />
                         <Route path='/customer-list' element={<CustomerList />} />
 
-                        <Route path='/add-product-type' element={<AddProductType />} />
-                        <Route path='/edit-product-type' element={<EditProductType />} />
-                        <Route path='/product-type-list' element={<ProductTypeList />} />
+                        <Route path='/add-product-category' element={<AddProductCategory />} />
+                        <Route path='/edit-product-category' element={<EditProductCategory />} />
+                        <Route path='/product-category-list' element={<ProductCategoryList />} />
 
-                        <Route path='/add-product-subtype' element={<AddProductSubtype />} />
-                        <Route path='/edit-product-subtype' element={<EditProductSubtype />} />
-                        <Route path='/product-subtype-list' element={<ProductSubtypeList />} />
+                        <Route path='/add-product-sub-category' element={<AddProductSubCategory />} />
+                        <Route path='/edit-product-sub-category' element={<EditProductSubCategory />} />
+                        <Route path='/product-sub-category-list' element={<ProductSubCategoryList />} />
 
                         <Route path='/add-product' element={<AddProduct />} />
                         <Route path='/edit-product' element={<EditProduct />} />

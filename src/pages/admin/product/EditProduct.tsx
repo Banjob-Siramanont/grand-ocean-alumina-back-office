@@ -11,8 +11,8 @@ export default function EditProduct() {
         productName: '',
         productUnit: '',
         productWeight: '',
-        selectedProductType: '',
-        selectedProductSubtype: '',
+        selectedProductCategory: '',
+        selectedProductSubCategory: '',
         selectedProductionLine: '',
         selectedCustomerGroup: '',
         productPrice: ''

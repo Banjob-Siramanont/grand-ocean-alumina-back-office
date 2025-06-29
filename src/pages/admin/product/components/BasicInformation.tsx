@@ -46,8 +46,8 @@ export type ProductData = {
     productName: string;
     productUnit: string;
     productWeight: string;
-    selectedProductType: string;
-    selectedProductSubtype: string;
+    selectedProductCategory: string;
+    selectedProductSubCategory: string;
     selectedProductionLine: string;
     selectedCustomerGroup: string;
     productPrice: string;
@@ -68,8 +68,8 @@ export default function BasicInformation({
         productName,
         productUnit,
         productWeight,
-        selectedProductType,
-        selectedProductSubtype,
+        selectedProductCategory,
+        selectedProductSubCategory,
         selectedProductionLine,
         selectedCustomerGroup,
         productPrice
@@ -110,18 +110,18 @@ export default function BasicInformation({
                 <SelectPrimary
                     labelTag='ประเภทสินค้า'
                     optionDatas={typeOptionsDatas}
-                    selectedValue={selectedProductType}
+                    selectedValue={selectedProductCategory}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => onDataChange('selectedProductType', value as string)}
+                    onChange={value => onDataChange('selectedProductCategory', value as string)}
                 />
                 <SelectPrimary
                     labelTag='ประเภทสินค้าย่อย'
                     optionDatas={subtypeOptionsDatas}
-                    selectedValue={selectedProductSubtype}
+                    selectedValue={selectedProductSubCategory}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => onDataChange('selectedProductSubtype', value as string)}
+                    onChange={value => onDataChange('selectedProductSubCategory', value as string)}
                 />
                 <SelectPrimary
                     labelTag='Line ที่ผลิตได้'
