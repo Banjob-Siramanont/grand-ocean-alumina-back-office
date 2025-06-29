@@ -3,7 +3,7 @@ import SelectSearchBase from './components/SelectSearchBase';
 
 import type { Option } from '../../types/common/commonTypes';
 
-type SelectSearchProps = {
+type SelectSearchSecondaryProps = {
     className?: string;
     labelTag?: string;
     optionDatas: Option[];
@@ -14,6 +14,6 @@ type SelectSearchProps = {
     onChange: (data: string | number) => void;
 }
 
-export default function SelectSearchSecondary(props: SelectSearchProps) {
+export default function SelectSearchSecondary(props: SelectSearchSecondaryProps) {
     return <SelectSearchBase {...props} variant='secondary' />;
 }
