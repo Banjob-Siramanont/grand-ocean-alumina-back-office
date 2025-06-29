@@ -46,7 +46,7 @@ export default function TableActionButtons({
         <div className='flex justify-between items-center gap-2'>
             {hasEditBtn && (
                 <OutlinedButton
-                    className='text-xl'
+                    className='text-lg'
                     text={editButtonText}
                     textColor='text-themeColor'
                     bgColor='bg-themeColor'
@@ -57,7 +57,7 @@ export default function TableActionButtons({
             )}
             {hasExtraBtn && (
                 <OutlinedButton
-                    className='text-xl'
+                    className='text-lg'
                     text={extraButtonText}
                     textColor='text-emeraldGreen'
                     bgColor='bg-emeraldGreen'
@@ -68,7 +68,7 @@ export default function TableActionButtons({
             )}
             {hasDeleteBtn && (
                 <OutlinedButton
-                    className='text-xl'
+                    className='text-lg'
                     text={deleteButtonText}
                     textColor='text-alarmRed'
                     bgColor='bg-alarmRed'
