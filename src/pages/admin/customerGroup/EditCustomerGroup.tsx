@@ -11,7 +11,7 @@ export default function EditCustomerGroup() {
 
     return (
         <>
-            <TopicOfPage text='เพิ่มกลุ่มร้านค้า' />
+            <TopicOfPage text='แก้ไขกลุ่มร้านค้า' />
             <CardPrimary>
                 <BasicInformation
                     name={name}

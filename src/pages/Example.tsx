@@ -81,7 +81,7 @@ export default function Example() {
                         textHelper='aws;edl'
                     />
                     <InputPrimary
-                        labelTag='ผู้ทำเคลม'
+                        labelTag='ผู้กรอกรายละเอียดใบ PO'
                         placeholder='กรุณาระบุ'
                         type='text'
                         value={'John Doe'}
