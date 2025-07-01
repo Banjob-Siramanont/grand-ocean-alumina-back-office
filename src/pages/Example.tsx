@@ -10,6 +10,8 @@ import TopicOfPage from '../common/topic/TopicOfPage';
 import { RxTrackNext } from 'react-icons/rx';
 import { IoPlaySkipBackOutline } from 'react-icons/io5';
 import ActionButtons from './components/ActionButtons';
+import ThreeColumnGrid from '../common/general/ThreeColumnGrid';
+import CardIdentifier from '../common/card/CardIdentifier';
 
 const mockupDatas4 = [
     {
@@ -71,7 +73,7 @@ export default function Example() {
             <Topic text='Input Components Example' />
             <CardPrimary className='mb-4'>
                 <div className='dark:text-white'>primary input design</div>
-                <div className='grid grid-cols-3 gap-4'>
+                <ThreeColumnGrid>
                     <InputDateAndTime
                         type='date'
                         labelTag='วันที่เข้าเบิก'
@@ -99,9 +101,9 @@ export default function Example() {
                         onChange={value => console.log(value)}
                         textHelper='test'
                     />
-                </div>
+                </ThreeColumnGrid>
                 <div className='mt-4 dark:text-white'>secondary input design</div>
-                <div className='grid grid-cols-3 gap-4'>
+                <ThreeColumnGrid>
                     <InputSecondary
                         placeholder='หมายเหตุ'
                         type='text'
@@ -126,9 +128,24 @@ export default function Example() {
                         onChange={value => console.log(value)}
                         textHelper='test'
                     />
-                </div>
+                </ThreeColumnGrid>
             </CardPrimary>
             <ActionButtons onClick={() => console.log('Action button clicked')} />
+            <div className='mt-4' />
+            <ThreeColumnGrid>
+                <CardIdentifier topicText='Card Identifier Example'>
+                    <div>this is child element which can be anything</div>
+                </CardIdentifier>
+                <CardIdentifier topicText='Card Identifier Example' borderColor='border-roseRed'>
+                    <div>this is child element which can be anything</div>
+                </CardIdentifier>
+                <CardIdentifier topicText='Card Identifier Example' borderColor='border-emeraldGreen'>
+                    <div>this is child element which can be anything</div>
+                </CardIdentifier>
+                <CardIdentifier topicText='Card Identifier Example' borderColor='border-creamYellow'>
+                    <div>this is child element which can be anything</div>
+                </CardIdentifier>
+            </ThreeColumnGrid>
             <div className='mb-4' />
             <CardPrimary>
                 <TablePrimary
