@@ -13,7 +13,7 @@ export default function TableRow({ idx, tHeadDatas, formattedDataKey, element }:
 
     return (
         <td
-            className='text-lg py-2 px-1.5 border-r dark:border-black border-lightGrey'
+            className='py-2 px-1.5 border-r dark:border-black border-lightGrey'
             style={{ textAlign: tHeadDatas[idx].cssTextAlign }}
         >
             {keyName !== '-' ? element[keyName] : keyName}

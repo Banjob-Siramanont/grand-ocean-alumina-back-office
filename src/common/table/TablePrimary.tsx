@@ -12,6 +12,8 @@ import CurrentRowsInformation from './components/CurrentRowsInformation';
 
 // css
 import styles from './Table.module.css';
+
+// Types
 import type { Data, FormattedDataKey, TableHead } from '../../types/common/tableTypes';
 import type { IconType } from 'react-icons/lib';
 

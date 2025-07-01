@@ -12,6 +12,7 @@ import { IoPlaySkipBackOutline } from 'react-icons/io5';
 import ActionButtons from './components/ActionButtons';
 import ThreeColumnGrid from '../common/general/ThreeColumnGrid';
 import CardIdentifier from '../common/card/CardIdentifier';
+import TableSecondary from '../common/table/TableSecondary';
 
 const mockupDatas4 = [
     {
@@ -148,6 +149,7 @@ export default function Example() {
             </ThreeColumnGrid>
             <div className='mb-4' />
             <CardPrimary>
+                <Topic text='Primary table design' />
                 <TablePrimary
                     data={mockupDatas4}
                     rowsPerPage={200}
@@ -170,6 +172,10 @@ export default function Example() {
                     deleteOnClick={id => console.log('delete', id)}
                 />
             </CardPrimary>
+
+            <CardIdentifier topicText='Secondary table design' borderColor='border-roseRed'>
+                <TableSecondary />
+            </CardIdentifier>
         </>
     )
 }
