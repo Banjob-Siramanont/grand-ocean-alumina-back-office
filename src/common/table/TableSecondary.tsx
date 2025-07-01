@@ -1,5 +1,4 @@
 import { currency } from '../../helper/utils/currency';
-import styles from './Table.module.css';
 
 const mockupDatas = [
     {
@@ -72,97 +71,6 @@ const mockupDatas = [
         quantity: '9',
         total: '72,000',
     },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
-    {
-        id: 3,
-        product: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีชมพู',
-        price: '8,000',
-        quantity: '9',
-        total: '72,000',
-    },
 ];
 
 const BORDER_COLOR = 'border-lightGrey dark:border-black';
@@ -172,7 +80,7 @@ export default function TableSecondary() {
     const totalPrice = currency(mockupDatas.reduce((acc, data) => acc + Number(data.total.replace(/,/g, '')), 0));
 
     return (
-        <div className={styles.tableWrapper}>
+        <div className='relative overflow-auto max-h-[440px]'>
             <table className='w-full border-separate border-spacing-0'>
                 <TableHeader />
                 <tbody className='dark:text-white text-lg'>
