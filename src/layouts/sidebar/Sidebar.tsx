@@ -9,6 +9,8 @@ import { setSidebarDatas } from '../../store/reducer/sidebarSlice/SidebarSlice';
 // Component
 import SidebarRecursive from './SidebarRecursive';
 
+import { BiLogoReact } from 'react-icons/bi';
+
 // React Icon
 import { GoGraph } from 'react-icons/go';
 import { FaMinus } from 'react-icons/fa6';
@@ -59,7 +61,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 },
             ],
             reactIcon: GoGraph,
-            relatePath: ['/', '/product-in-production-line', '/product-sales', '/best-selling-product'],
+            relatePath: ['/product-in-production-line', '/product-sales', '/best-selling-product'],
         },
     ];
     const customerOrderMenu: Node[] = [
@@ -330,6 +332,13 @@ export default function Sidebar({ className }: { className?: string }) {
             nodes: [],
             reactIcon: FiLogOut,
             path: '/login',
+            noSubMenu: true,
+        },
+        {
+            name: 'Example Page',
+            nodes: [],
+            reactIcon: BiLogoReact,
+            path: '/',
             noSubMenu: true,
         },
     ];

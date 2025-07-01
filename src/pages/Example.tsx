@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import CardPrimary from '../common/card/CardPrimary';
 import InputDateAndTime from '../common/input/InputDateAndTime';
 import InputPrimary from '../common/input/InputPrimary';
@@ -13,6 +14,9 @@ import ActionButtons from './components/ActionButtons';
 import ThreeColumnGrid from '../common/general/ThreeColumnGrid';
 import CardIdentifier from '../common/card/CardIdentifier';
 import TableSecondary from '../common/table/TableSecondary';
+import Filter from '../common/select/Filter';
+import TwoColumnGrid from '../common/general/TwoColumnGrid';
+import { dateSelector, type Period } from '../helper/utils/date';
 
 const mockupDatas4 = [
     {
@@ -68,6 +72,20 @@ const mockupDatas4 = [
 ];
 
 export default function Example() {
+
+    const [selectedOption, setSelectedOption] = useState<Period>('TW');
+    const [startDate, setStartDate] = useState<string>('');
+    const [endDate, setEndDate] = useState<string>('');
+
+    const [selectedCustomOption, setSelectedCustomOption] = useState<string>('เสาเหลี่ยม');
+
+    useEffect(() => {
+        const { startDate, endDate } = dateSelector(selectedOption);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        console.log(startDate, endDate);
+    }, [selectedOption]);
+
     return (
         <>
             <TopicOfPage text='Example Page' />
@@ -148,7 +166,7 @@ export default function Example() {
                 </CardIdentifier>
             </ThreeColumnGrid>
             <div className='mb-4' />
-            <CardPrimary>
+            <CardPrimary className='mb-4'>
                 <Topic text='Primary table design' />
                 <TablePrimary
                     data={mockupDatas4}
@@ -176,6 +194,31 @@ export default function Example() {
             <CardIdentifier topicText='Secondary table design' borderColor='border-roseRed'>
                 <TableSecondary />
             </CardIdentifier>
+
+            <CardPrimary className='my-4'>
+                <Topic text='Time Range Selector' />
+                <Filter selectedOption={selectedOption} onClick={setSelectedOption} />
+                <TwoColumnGrid className='my-4'>
+                    <InputDateAndTime
+                        labelTag='วันที่เริ่มต้น'
+                        type='date'
+                        value={startDate}
+                        onChange={formattedDate => setStartDate(formattedDate)}
+                    />
+                    <InputDateAndTime
+                        labelTag='วันที่สิ้นสุด'
+                        type='date'
+                        value={endDate}
+                        onChange={formattedDate => setEndDate(formattedDate)}
+                    />
+                </TwoColumnGrid>
+                <Filter
+                    selectedOption={selectedCustomOption}
+                    customOption={['เสาเหลี่ยม', 'โครงเหล็ก', 'ตู้กระจก', 'ขาโปร่ง']}
+                    onClick={setSelectedCustomOption}
+                />
+            </CardPrimary>
+
         </>
     )
 }
