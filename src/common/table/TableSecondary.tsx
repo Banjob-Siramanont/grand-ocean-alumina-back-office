@@ -173,7 +173,7 @@ export default function TableSecondary() {
 
     return (
         <div className={styles.tableWrapper}>
-            <table className={styles.table}>
+            <table className='w-full border-separate border-spacing-0'>
                 <TableHeader />
                 <tbody className='dark:text-white text-lg'>
                     {mockupDatas.map((data, index) => (
@@ -186,9 +186,9 @@ export default function TableSecondary() {
                             total={data.total}
                         />
                     ))}
-                    <tr className={`border-t ${BORDER_COLOR}`}>
-                        <td colSpan={4} className='text-right py-1 px-1.5 font-medium text-themeColor'>จำนวนเงินรวมทั้งสิ้น</td>
-                        <td className={`border ${BORDER_COLOR} text-right py-1 px-1.5 font-light`}>{totalPrice}</td>
+                    <tr>
+                        <td colSpan={4} className={`border-t border-r ${BORDER_COLOR} text-right py-1 px-1.5 font-medium text-themeColor`}>จำนวนเงินรวมทั้งสิ้น</td>
+                        <td className={`border-r border-y ${BORDER_COLOR} text-right py-1 px-1.5 font-light`}>{totalPrice}</td>
                     </tr>
                 </tbody>
             </table>
@@ -199,8 +199,8 @@ export default function TableSecondary() {
 function TableHeader() {
     return (
         <thead className='text-themeColor'>
-            <tr className={`border ${BORDER_COLOR}`}>
-                <TableHeaderComponent title='ลำดับ' align='text-center' />
+            <tr>
+                <TableHeaderComponent className='border-l' title='ลำดับ' align='text-center' />
                 <TableHeaderComponent title='ชื่อสินค้า' align='text-left' />
                 <TableHeaderComponent title='ราคา / หน่วย' align='text-right' />
                 <TableHeaderComponent title='จำนวน' align='text-right' />
@@ -211,12 +211,23 @@ function TableHeader() {
 }
 
 type TableHeaderComponentsProps = {
+    className?: string
     title: string;
     align: 'text-left' | 'text-right' | 'text-center';
 };
-function TableHeaderComponent({ title, align }: TableHeaderComponentsProps) {
+function TableHeaderComponent({ className, title, align }: TableHeaderComponentsProps) {
     return (
-        <th className={`border-r ${BORDER_COLOR} sticky top-0 z-1 bg-white dark:bg-primaryBlack py-1 px-1.5 whitespace-nowrap font-medium ${align}`}>{title}</th>
+        <th
+            className={`
+                ${className}
+                border-y border-r ${BORDER_COLOR}
+                sticky top-0 z-10
+                bg-white dark:bg-primaryBlack
+                py-1 px-1.5 whitespace-nowrap font-medium ${align}
+            `}
+        >
+            {title}
+        </th>
     )
 }
 
@@ -229,8 +240,8 @@ type TableRowProps = {
 };
 function TableRow({ index, product, price, quantity, total }: TableRowProps) {
     return (
-        <tr className={`border-l ${BORDER_COLOR}`}>
-            <TableRowComponent content={index} align='text-center' />
+        <tr>
+            <TableRowComponent className='border-l' content={index} align='text-center' />
             <TableRowComponent content={product} align='text-left' />
             <TableRowComponent content={price} align='text-right' />
             <TableRowComponent content={quantity} align='text-right' />
@@ -240,11 +251,20 @@ function TableRow({ index, product, price, quantity, total }: TableRowProps) {
 }
 
 type TableRowComponentProps = {
+    className?: string;
     content: string | number;
     align: 'text-left' | 'text-right' | 'text-center';
 };
-function TableRowComponent({ content, align }: TableRowComponentProps) {
+function TableRowComponent({ className, content, align }: TableRowComponentProps) {
     return (
-        <td className={`border-r ${BORDER_COLOR} py-1 px-1.5 font-light whitespace-nowrap ${align}`}>{content}</td>
+        <td
+            className={`
+                ${className}
+                border-r ${BORDER_COLOR}
+                py-1 px-1.5 font-light whitespace-nowrap ${align}
+            `}
+        >
+            {content}
+        </td>
     )
 }
