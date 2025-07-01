@@ -148,7 +148,7 @@ type TableRowProps = {
 };
 function TableRow({ index, product, price, quantity, total }: TableRowProps) {
     return (
-        <tr>
+        <tr className='hover:bg-veryLightGrey dark:hover:bg-tertiaryBlack'>
             <TableRowComponent className='border-l' content={index} align='text-center' />
             <TableRowComponent content={product} align='text-left' />
             <TableRowComponent content={price} align='text-right' />
