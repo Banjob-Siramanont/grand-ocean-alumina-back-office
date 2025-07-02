@@ -10,7 +10,7 @@ const customerCompanyOptionDatas = [
     { value: '03', displayValue: 'Home Pro' },
 ];
 
-type BasicInformationData = {
+export type BasicInformationData = {
     selectedCustomerCompany: string;
     poNumber: string;
     orderDate: string;
