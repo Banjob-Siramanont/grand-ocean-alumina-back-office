@@ -37,7 +37,7 @@ export default function SummaryInformation() {
                 <Detail topic='วันที่ออกใบสั่งซื้อ' detail={orderDate ? getDetailedDateInfo(new Date(orderDate)).thaiFormat : 'กรุณาเลือกวันที่'} />
                 <Detail topic='วันหมดอายุใบสั่งซื้อ (PO Exp.)' detail={expiredDate ? getDetailedDateInfo(new Date(expiredDate)).thaiFormat : 'กรุณาเลือกวันที่'} />
                 <Detail topic='สถานที่จัดส่งสินค้า' detail={shippingAddress ? shippingAddress : 'กรุณาระบุสถานที่จัดส่งสินค้า'} />
-                <Detail topic='ยอดสั่งสินค้า' detail={`${currency(price.totalPrice)} บาท`} />
+                <Detail topic='ยอดสั่งซื้อ' detail={`${currency(price.totalPrice)} บาท`} />
                 <Detail topic='ภาษีมูลค่าเพิ่ม' detail={`${currency(price.totalVat)} บาท`} />
                 <Detail topic='รวมทั้งสิ้น' detail={`${currency(price.grandTotal)} บาท`} />
             </div>

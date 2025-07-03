@@ -20,7 +20,7 @@ export default function Prices() {
         <div className='text-right dark:text-white'>
             <div className='text-right'>ยอดสั่งซื้อ : {currency(price.totalPrice)} บาท</div>
             <div className='text-right'>ภาษีมูลค่าเพิ่ม : {currency(price.totalVat)} บาท</div>
-            <div className='text-right'>รวมทั้งสิ้่น : {currency(price.grandTotal)} บาท</div>
+            <div className='text-right'>รวมทั้งสิ้น : {currency(price.grandTotal)} บาท</div>
         </div>
     )
 }
