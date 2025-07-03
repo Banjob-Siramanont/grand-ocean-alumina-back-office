@@ -42,7 +42,7 @@ export default function SpecialProductList() {
     return (
         <>
             <Topic text='รายการสินค้าพิเศษ' />
-            <div className='grid grid-cols-4 gap-x-4 max-[1000px]:grid-cols-1 mb-8'>
+            <div className='grid grid-cols-4 gap-x-2 max-[1000px]:grid-cols-1 mb-8'>
                 {specialProductDatas.map((specialProductData, index) => {
                     // Count occurrences of each product_id
                     const specialProductIdCounts = specialProductDatas.reduce<Record<string, number>>((acc, item) => {
@@ -97,7 +97,7 @@ export default function SpecialProductList() {
                     );
                 })}
             </div>
-            <div className='flex justify-between items-start'>
+            <div className='flex justify-between items-start mb-8'>
                 <div className='flex justify-start items-center gap-x-2'>
                     <OutlinedButton
                         text='+ เพิ่มรายการ'

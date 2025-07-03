@@ -41,7 +41,7 @@ export default function ProductList() {
     return (
         <>
             <Topic text='รายการสินค้า' />
-            <div className='grid grid-cols-3 gap-x-4 max-[1000px]:grid-cols-1 mb-8'>
+            <div className='grid grid-cols-3 gap-x-2 max-[1000px]:grid-cols-1 mb-8'>
                 {productDatas.map((productData, index) => {
                     // Count occurrences of each product_id
                     const productIdCounts = productDatas.reduce<Record<string, number>>((acc, item) => {
