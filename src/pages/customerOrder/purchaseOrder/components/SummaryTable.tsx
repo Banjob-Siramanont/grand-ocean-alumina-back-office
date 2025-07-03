@@ -34,6 +34,7 @@ export default function SummaryTable() {
             <TablePrimary
                 data={productDataWithname}
                 rowsPerPage={10}
+                isHideTableSearch={true}
                 tHeadDatas={[
                     { tHeadTiltle: 'รหัสสินค้า', cssTextAlign: 'left', key: 'product_id' },
                     { tHeadTiltle: 'ชื่อสินค้า', cssTextAlign: 'left', key: 'product_name' },
@@ -50,6 +51,7 @@ export default function SummaryTable() {
                     <TablePrimary
                         data={specialProductDataWithname}
                         rowsPerPage={10}
+                        isHideTableSearch={true}
                         tHeadDatas={[
                             { tHeadTiltle: 'รหัสสินค้า', cssTextAlign: 'left', key: 'product_id' },
                             { tHeadTiltle: 'ชื่อสินค้า', cssTextAlign: 'left', key: 'product_name' },
