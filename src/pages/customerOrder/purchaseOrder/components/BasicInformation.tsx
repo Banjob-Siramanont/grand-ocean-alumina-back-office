@@ -1,19 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setPurchaseOrderData } from '../../../../store/reducer/customerOrder/PurchaseOrderSlice';
+
+// Components
 import ThreeColumnGrid from '../../../../common/general/ThreeColumnGrid';
 import InputDateAndTime from '../../../../common/input/InputDateAndTime';
 import InputPrimary from '../../../../common/input/InputPrimary';
 import SelectPrimary from '../../../../common/select/SelectPrimary';
 import Topic from '../../../../common/topic/Topic';
 
+// Types
 import type { AppDispatch, RootState } from '../../../../store/Store';
 import type { PurchaseOrderData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
-
-const customerCompanyOptionDatas = [
-    { value: '01', displayValue: 'ไทวัสดุ' },
-    { value: '02', displayValue: 'อมรภัณฑ์' },
-    { value: '03', displayValue: 'Home Pro' },
-];
 
 export default function BasicInformation() {
 
@@ -23,6 +20,7 @@ export default function BasicInformation() {
         orderDate,
         expiredDate,
         shippingAddress,
+        customerCompanyOptionDatas,
     } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
 
     const dispatch = useDispatch<AppDispatch>();
@@ -39,8 +37,8 @@ export default function BasicInformation() {
                     labelTag='บริษัทลูกค้า'
                     optionDatas={customerCompanyOptionDatas}
                     selectedValue={selectedCustomerCompany}
-                    keyValue='value'
-                    keyDisplayValue='displayValue'
+                    keyValue='_id'
+                    keyDisplayValue='company_name'
                     onChange={value => handleOnchange('selectedCustomerCompany', value as string)}
                 />
                 <InputPrimary

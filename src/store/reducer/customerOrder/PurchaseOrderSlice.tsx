@@ -60,6 +60,11 @@ const initialState: PurchaseOrderData = storedState ? JSON.parse(storedState) : 
         { _id: '60367934', product_name: 'ตู้วางเตาแก๊ส Zagio CR140-S 142x45.5x85.5 ซม. สีดำ', price: 1700, vat: 119 },
         { _id: '60367935', product_name: 'ตู้วางเตาแก๊ส Zagio CR80-S 82x45.5x85.5 ซม. สีเทา', price: 1400, vat: 98 },
     ],
+    customerCompanyOptionDatas: [
+        { _id: '01', company_name: 'ไทวัสดุ' },
+        { _id: '02', company_name: 'อมรภัณฑ์' },
+        { _id: '03', company_name: 'Home Pro' },
+    ],
 };
 
 const purchaseOrderDataStateValue = createSlice({
