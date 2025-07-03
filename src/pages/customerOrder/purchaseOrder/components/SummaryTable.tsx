@@ -1,7 +1,10 @@
 import { useSelector } from 'react-redux';
+
+// Components
 import Topic from '../../../../common/topic/Topic';
 import TablePrimary from '../../../../common/table/TablePrimary';
 
+// Types
 import type { RootState } from '../../../../store/Store';
 
 export default function SummaryTable() {
