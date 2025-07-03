@@ -15,25 +15,25 @@ const initialState: PurchaseOrderData = storedState ? JSON.parse(storedState) : 
         {
             id: 1,
             product_id: '',
-            amount: '',
+            quantity: '',
             note: '',
         },
         {
             id: 2,
             product_id: '',
-            amount: '',
+            quantity: '',
             note: '',
         },
         {
             id: 3,
             product_id: '',
-            amount: '',
+            quantity: '',
             note: '',
         },
         {
             id: 4,
             product_id: '',
-            amount: '',
+            quantity: '',
             note: '',
         },
     ],
@@ -41,7 +41,7 @@ const initialState: PurchaseOrderData = storedState ? JSON.parse(storedState) : 
         {
             id: 1,
             product_id: '',
-            amount: '',
+            quantity: '',
             addedPrice: '',
             note: '',
         },
@@ -82,8 +82,8 @@ const purchaseOrderDataStateValue = createSlice({
                     state.productDatas[index].product_id = value;
                     break;
                 }
-                case 'amount': {
-                    state.productDatas[index].amount = value;
+                case 'quantity': {
+                    state.productDatas[index].quantity = value;
                     break;
                 }
                 case 'note': {
@@ -103,8 +103,8 @@ const purchaseOrderDataStateValue = createSlice({
                     state.specialProductDatas[index].product_id = value;
                     break;
                 }
-                case 'amount': {
-                    state.specialProductDatas[index].amount = value;
+                case 'quantity': {
+                    state.specialProductDatas[index].quantity = value;
                     break;
                 }
                 case 'addedPrice': {
@@ -125,7 +125,7 @@ const purchaseOrderDataStateValue = createSlice({
                 newProduct = {
                     id: state.specialProductDatas.length + 1,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     addedPrice: '',
                     note: '',
                 };
@@ -134,7 +134,7 @@ const purchaseOrderDataStateValue = createSlice({
                 newProduct = {
                     id: state.productDatas.length + 1,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     note: '',
                 };
                 state.productDatas.push(newProduct);
@@ -159,25 +159,25 @@ const purchaseOrderDataStateValue = createSlice({
                 {
                     id: 1,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     note: '',
                 },
                 {
                     id: 2,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     note: '',
                 },
                 {
                     id: 3,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     note: '',
                 },
                 {
                     id: 4,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     note: '',
                 },
             ];
@@ -185,7 +185,7 @@ const purchaseOrderDataStateValue = createSlice({
                 {
                     id: 1,
                     product_id: '',
-                    amount: '',
+                    quantity: '',
                     addedPrice: '',
                     note: '',
                 },

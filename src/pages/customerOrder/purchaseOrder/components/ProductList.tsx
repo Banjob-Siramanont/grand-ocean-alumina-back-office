@@ -52,8 +52,8 @@ export default function ProductList() {
                             <InputSecondary
                                 placeholder='จำนวนสินค้า'
                                 type='number'
-                                value={productData.amount}
-                                onChange={event => handleOnChange({ index, updateKey: 'amount', value: numericWithoutText(event.target.value) })}
+                                value={productData.quantity}
+                                onChange={event => handleOnChange({ index, updateKey: 'quantity', value: numericWithoutText(event.target.value) })}
                             />
                             <div className='flex justify-start items-start gap-x-2'>
                                 <InputSecondary

@@ -33,25 +33,25 @@ export function calculateOrderTotals(
     // Calculate regular products
     const totalProductPrice = productDatas.reduce((total, product) => {
         const productOption = productOptions.find(option => option._id === product.product_id);
-        return total + (productOption ? productOption.price * (Number(product.amount) || 0) : 0);
+        return total + (productOption ? productOption.price * (Number(product.quantity) || 0) : 0);
     }, 0);
 
     const totalProductVat = productDatas.reduce((total, product) => {
         const productOption = productOptions.find(option => option._id === product.product_id);
-        return total + (productOption ? productOption.vat * (Number(product.amount) || 0) : 0);
+        return total + (productOption ? productOption.vat * (Number(product.quantity) || 0) : 0);
     }, 0);
 
     // Calculate special products
     const totalSpecialProductPrice = specialProductDatas.reduce((total, product) => {
         const productOption = productOptions.find(option => option._id === product.product_id);
         const sumPrice = (productOption?.price || 0) + (Number(product.addedPrice) || 0);
-        return total + (productOption ? sumPrice * (Number(product.amount) || 0) : 0);
+        return total + (productOption ? sumPrice * (Number(product.quantity) || 0) : 0);
     }, 0);
 
     const totalSpecialProductVat = specialProductDatas.reduce((total, product) => {
         const productOption = productOptions.find(option => option._id === product.product_id);
         const sumVatPrice = (productOption?.vat || 0) + (VAT_FRACTION * Number(product.addedPrice) || 0);
-        return total + (productOption ? sumVatPrice * (Number(product.amount) || 0) : 0);
+        return total + (productOption ? sumVatPrice * (Number(product.quantity) || 0) : 0);
     }, 0);
 
     // Calculate totals

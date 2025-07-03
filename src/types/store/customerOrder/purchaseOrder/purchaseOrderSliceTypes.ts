@@ -1,14 +1,14 @@
 export type ProductData = {
     id: number;
     product_id: string;
-    amount: string;
+    quantity: string;
     note: string;
 };
 
 export type SpecialProductData = {
     id: number;
     product_id: string;
-    amount: string;
+    quantity: string;
     addedPrice: string;
     note: string;
 };

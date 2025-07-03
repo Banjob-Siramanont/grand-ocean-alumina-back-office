@@ -53,8 +53,8 @@ export default function SpecialProductList() {
                             <InputSecondary
                                 placeholder='จำนวนสินค้า'
                                 type='number'
-                                value={specialProductData.amount}
-                                onChange={event => handleOnChange({ index, updateKey: 'amount', value: numericWithoutText(event.target.value) })}
+                                value={specialProductData.quantity}
+                                onChange={event => handleOnChange({ index, updateKey: 'quantity', value: numericWithoutText(event.target.value) })}
                             />
                             <InputSecondary
                                 placeholder='ราคาเพิ่มเติมต่อหน่วย (ถ้ามี)'
