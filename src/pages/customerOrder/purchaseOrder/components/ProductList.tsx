@@ -70,7 +70,7 @@ export default function ProductList() {
                                 value={productData.amount}
                                 onChange={event => handleOnChange({ index, updateKey: 'amount', value: numericWithoutText(event.target.value) })}
                             />
-                            <div className='flex justify-start items-center gap-x-2'>
+                            <div className='flex justify-start items-start gap-x-2'>
                                 <InputSecondary
                                     className='w-full max-[1000px]:mb-4'
                                     placeholder='หมายเหตุ (ไม่บังคับ)'
@@ -79,6 +79,7 @@ export default function ProductList() {
                                     onChange={event => handleOnChange({ index, updateKey: 'note', value: event.target.value })}
                                 />
                                 <OutlinedButton
+                                    className='mt-3'
                                     text='-'
                                     textColor='text-alarmRed'
                                     bgColor='bg-alarmRed'
