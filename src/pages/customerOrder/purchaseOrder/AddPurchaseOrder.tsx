@@ -5,6 +5,7 @@ import CardPrimary from '../../../common/card/CardPrimary';
 import TopicOfPage from '../../../common/topic/TopicOfPage';
 import BasicInformation from './components/BasicInformation';
 import ProductList from './components/ProductList';
+import SpecialProductList from './components/SpecialProductList';
 
 // Types
 import type { RootState } from '../../../store/Store';
@@ -35,6 +36,7 @@ export default function AddPurchaseOrder() {
             <CardPrimary>
                 <BasicInformation />
                 <ProductList />
+                <SpecialProductList />
             </CardPrimary>
 
         </>

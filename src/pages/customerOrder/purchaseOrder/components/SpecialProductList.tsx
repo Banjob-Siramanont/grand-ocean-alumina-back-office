@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductData, deleteProductData, setProductDatas } from '../../../../store/reducer/customerOrder/PurchaseOrderSlice';
+import { addProductData, deleteProductData, setSpecialProductDatas } from '../../../../store/reducer/customerOrder/PurchaseOrderSlice';
 
 // Components
 import Topic from '../../../../common/topic/Topic';
@@ -13,7 +13,7 @@ import { numericWithoutText } from '../../../../helper/utils/validation';
 
 // Types
 import type { AppDispatch, RootState } from '../../../../store/Store';
-import type { ProductData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
+import type { SpecialProductData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
 
 const productOptionDatas = [
     { _id: '60367919', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีขาว' },
@@ -30,21 +30,21 @@ const productOptionDatas = [
     { _id: '60367935', product_name: 'ตู้วางเตาแก๊ส Zagio CR80-S 82x45.5x85.5 ซม. สีเทา' },
 ];
 
-export default function ProductList() {
+export default function SpecialProductList() {
 
-    const { productDatas } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
+    const { specialProductDatas } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
     const dispatch = useDispatch<AppDispatch>();
-    const handleOnChange = <Key extends keyof ProductData>(
-        { index, updateKey, value }: { index: number; updateKey: Key; value: ProductData[Key]; }
-    ) => dispatch(setProductDatas({ index, updateKey, value: value as string }));
+    const handleOnChange = <Key extends keyof SpecialProductData>(
+        { index, updateKey, value }: { index: number; updateKey: Key; value: SpecialProductData[Key]; }
+    ) => dispatch(setSpecialProductDatas({ index, updateKey, value: value as string }));
 
     return (
         <>
-            <Topic text='รายการสินค้า' />
-            <div className='grid grid-cols-3 gap-x-4 max-[1000px]:grid-cols-1 mb-8'>
-                {productDatas.map((productData, index) => {
+            <Topic text='รายการสินค้าพิเศษ' />
+            <div className='grid grid-cols-4 gap-x-4 max-[1000px]:grid-cols-1 mb-8'>
+                {specialProductDatas.map((specialProductData, index) => {
                     // Count occurrences of each product_id
-                    const productIdCounts = productDatas.reduce<Record<string, number>>((acc, item) => {
+                    const specialProductIdCounts = specialProductDatas.reduce<Record<string, number>>((acc, item) => {
                         if (item.product_id !== '') {
                             acc[item.product_id] = (acc[item.product_id] || 0) + 1;
                         }
@@ -52,13 +52,13 @@ export default function ProductList() {
                     }, {});
 
                     // Check if the current product_id is a duplicate
-                    const isDuplicate = productIdCounts[productData.product_id] > 1;
+                    const isDuplicate = specialProductIdCounts[specialProductData.product_id] > 1;
 
                     return (
-                        <React.Fragment key={productData.id}>
+                        <React.Fragment key={specialProductData.id}>
                             <SelectSearchSecondary
                                 optionDatas={productOptionDatas}
-                                selectedValue={productData.product_id}
+                                selectedValue={specialProductData.product_id}
                                 keyValue='_id'
                                 keyDisplayValue='product_name'
                                 onChange={value => handleOnChange({ index, updateKey: 'product_id', value: value as string })}
@@ -67,15 +67,21 @@ export default function ProductList() {
                             <InputSecondary
                                 placeholder='จำนวนสินค้า'
                                 type='number'
-                                value={productData.amount}
+                                value={specialProductData.amount}
                                 onChange={event => handleOnChange({ index, updateKey: 'amount', value: numericWithoutText(event.target.value) })}
+                            />
+                            <InputSecondary
+                                placeholder='ราคาเพิ่มเติมต่อหน่วย (ถ้ามี)'
+                                type='number'
+                                value={specialProductData.addedPrice}
+                                onChange={event => handleOnChange({ index, updateKey: 'addedPrice', value: numericWithoutText(event.target.value) })}
                             />
                             <div className='flex justify-start items-center gap-x-2'>
                                 <InputSecondary
                                     className='w-full max-[1000px]:mb-4'
                                     placeholder='หมายเหตุ (ไม่บังคับ)'
                                     type='text'
-                                    value={productData.note}
+                                    value={specialProductData.note}
                                     onChange={event => handleOnChange({ index, updateKey: 'note', value: event.target.value })}
                                 />
                                 <OutlinedButton
@@ -83,30 +89,29 @@ export default function ProductList() {
                                     textColor='text-alarmRed'
                                     bgColor='bg-alarmRed'
                                     borderColor='border-alarmRed'
-                                    onClick={() => dispatch(deleteProductData({ index }))}
+                                    onClick={() => dispatch(deleteProductData({ productType: 'special', index }))}
                                 />
                             </div>
                         </React.Fragment>
                     );
                 })}
             </div>
-            <div className='flex justify-start items-center gap-x-2 mb-8'>
+            <div className='flex justify-start items-center gap-x-2'>
                 <OutlinedButton
                     text='+ เพิ่มรายการ'
                     textColor='text-themeColor'
                     bgColor='bg-themeColor'
                     borderColor='border-themeColor'
-                    onClick={() => dispatch(addProductData({}))}
+                    onClick={() => dispatch(addProductData({ productType: 'special' }))}
                 />
                 <OutlinedButton
                     text='- ลบรายการ'
                     textColor='text-alarmRed'
                     bgColor='bg-alarmRed'
                     borderColor='border-alarmRed'
-                    onClick={() => dispatch(deleteProductData({ index: productDatas.length - 1 }))}
+                    onClick={() => dispatch(deleteProductData({ productType: 'special', index: specialProductDatas.length - 1 }))}
                 />
             </div>
-
         </>
     )
 }
