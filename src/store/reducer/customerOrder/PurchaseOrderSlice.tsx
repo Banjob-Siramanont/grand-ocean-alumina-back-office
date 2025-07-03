@@ -145,8 +145,8 @@ const purchaseOrderDataStateValue = createSlice({
         deleteProductData: (state: PurchaseOrderData, action: PayloadAction<{ productType?: 'normal' | 'special', index: number }>) => {
             const { productType, index } = action.payload;
 
-            if (productType === 'special') state.specialProductDatas = deleteAndReassignId(state.specialProductDatas, index);
-            else state.productDatas = deleteAndReassignId(state.productDatas, index);
+            if (productType === 'special' && state.specialProductDatas.length >= 0) state.specialProductDatas = deleteAndReassignId(state.specialProductDatas, index);
+            else if (state.productDatas.length > 1) state.productDatas = deleteAndReassignId(state.productDatas, index);
             setSessionStorage(state);
         },
         resetPurchaseOrderData: (state: PurchaseOrderData) => {
