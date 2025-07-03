@@ -3,17 +3,18 @@ import OutlinedButton from '../../common/button/OutlinedButton';
 import ContainedButton from '../../common/button/ContainedButton';
 
 type ActionButtonsProps = {
+    className?: string;
     cancelText?: string;
     actionText?: string;
     onClick: () => void;
 }
 
-export default function ActionButtons({ cancelText = 'ยกเลิก', actionText = 'บันทึกข้อมูล', onClick }: ActionButtonsProps) {
+export default function ActionButtons({ className, cancelText = 'ยกเลิก', actionText = 'บันทึกข้อมูล', onClick }: ActionButtonsProps) {
 
     const navigate = useNavigate();
 
     return (
-        <div className='flex justify-end items-center gap-x-2'>
+        <div className={`flex justify-end items-center gap-x-2 ${className}`}>
             <OutlinedButton
                 text={cancelText}
                 textColor='text-alarmRed'
