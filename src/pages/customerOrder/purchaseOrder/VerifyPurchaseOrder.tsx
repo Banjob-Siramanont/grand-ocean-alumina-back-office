@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+
+// Components
 import OutlinedButton from '../../../common/button/OutlinedButton';
 import CardPrimary from '../../../common/card/CardPrimary';
 import TopicOfPage from '../../../common/topic/TopicOfPage';
@@ -7,6 +9,9 @@ import SummaryTable from './components/SummaryTable';
 import ContainedButton from '../../../common/button/ContainedButton';
 
 export default function VerifyPurchaseOrder() {
+
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
 
     const navigate = useNavigate();
 
@@ -25,10 +30,13 @@ export default function VerifyPurchaseOrder() {
                         onClick={() => navigate(-1)}
                     />
                     <ContainedButton
-                        text='เพิ่มใบ PO'
+                        text={id ? 'บันทึกข้อมูล' : 'เพิ่มใบ PO'}
                         bgColor='bg-themeColor'
                         borderColor='border-themeColor'
-                        onClick={() => console.log('Add Purchase Order')}
+                        onClick={() => {
+                            if (id) console.log('edit purchase order with ID:', id);
+                            else console.log('add new purchase order');
+                        }}
                     />
                 </div>
             </CardPrimary>
