@@ -81,7 +81,7 @@ export default function ProductList() {
                                     textColor='text-alarmRed'
                                     bgColor='bg-alarmRed'
                                     borderColor='border-alarmRed'
-                                    onClick={() => deleteProductData(index)}
+                                    onClick={() => dispatch(deleteProductData(index))}
                                 />
                             </div>
                         </React.Fragment>
@@ -94,14 +94,14 @@ export default function ProductList() {
                     textColor='text-themeColor'
                     bgColor='bg-themeColor'
                     borderColor='border-themeColor'
-                    onClick={() => addProductData()}
+                    onClick={() => dispatch(addProductData())}
                 />
                 <OutlinedButton
                     text='- ลบรายการ'
                     textColor='text-alarmRed'
                     bgColor='bg-alarmRed'
                     borderColor='border-alarmRed'
-                    onClick={() => deleteProductData(productDatas.length - 1)}
+                    onClick={() => dispatch(deleteProductData(productDatas.length - 1))}
                 />
             </div>
 
