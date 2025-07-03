@@ -1,8 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { setPurchaseOrderData } from '../../../../store/reducer/customerOrder/PurchaseOrderSlice';
 import ThreeColumnGrid from '../../../../common/general/ThreeColumnGrid';
 import InputDateAndTime from '../../../../common/input/InputDateAndTime';
 import InputPrimary from '../../../../common/input/InputPrimary';
 import SelectPrimary from '../../../../common/select/SelectPrimary';
 import Topic from '../../../../common/topic/Topic';
+
+import type { AppDispatch, RootState } from '../../../../store/Store';
+import type { PurchaseOrderData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
 
 const customerCompanyOptionDatas = [
     { value: '01', displayValue: 'ไทวัสดุ' },
@@ -10,20 +15,7 @@ const customerCompanyOptionDatas = [
     { value: '03', displayValue: 'Home Pro' },
 ];
 
-export type BasicInformationData = {
-    selectedCustomerCompany: string;
-    poNumber: string;
-    orderDate: string;
-    expiredDate: string;
-    shippingAddress: string;
-};
-
-type BasicInformationProps = {
-    basicInformationData: BasicInformationData;
-    onDataChange: (key: keyof BasicInformationData, value: string | number) => void;
-};
-
-export default function BasicInformation({ basicInformationData, onDataChange }: BasicInformationProps) {
+export default function BasicInformation() {
 
     const {
         selectedCustomerCompany,
@@ -31,7 +23,14 @@ export default function BasicInformation({ basicInformationData, onDataChange }:
         orderDate,
         expiredDate,
         shippingAddress,
-    } = basicInformationData;
+    } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    const handleOnchange = <Key extends keyof PurchaseOrderData>(variableName: Key, value: PurchaseOrderData[Key]) => {
+        dispatch(setPurchaseOrderData({ variableName, value }));
+    };
+
     return (
         <>
             <Topic text='ข้อมูลใบ PO' />
@@ -42,35 +41,35 @@ export default function BasicInformation({ basicInformationData, onDataChange }:
                     selectedValue={selectedCustomerCompany}
                     keyValue='value'
                     keyDisplayValue='displayValue'
-                    onChange={value => onDataChange('selectedCustomerCompany', value as string)}
+                    onChange={value => handleOnchange('selectedCustomerCompany', value as string)}
                 />
                 <InputPrimary
                     labelTag='เลขที่ใบสั่งซื้อ (PO Number)'
                     type='text'
                     placeholder='กรุณาระบุ'
                     value={poNumber}
-                    onChange={event => onDataChange('poNumber', event.target.value as string)}
+                    onChange={event => handleOnchange('poNumber', event.target.value as string)}
                 />
                 <InputDateAndTime
                     labelTag='วันที่ออกใบสั่งซื้อ'
                     type='date'
                     placeholder='กรุณาเลือกวันที่'
                     value={orderDate}
-                    onChange={date => onDataChange('orderDate', date as string)}
+                    onChange={date => handleOnchange('orderDate', date as string)}
                 />
                 <InputDateAndTime
                     labelTag='วันที่หมดอายุของใบสั่งซื้อ'
                     type='date'
                     placeholder='กรุณาเลือกวันที่'
                     value={expiredDate}
-                    onChange={date => onDataChange('expiredDate', date as string)}
+                    onChange={date => handleOnchange('expiredDate', date as string)}
                 />
                 <InputPrimary
                     labelTag='สถานที่จัดส่งสินค้า'
                     type='text'
                     placeholder='กรุณาระบุ'
                     value={shippingAddress}
-                    onChange={event => onDataChange('shippingAddress', event.target.value as string)}
+                    onChange={event => handleOnchange('shippingAddress', event.target.value as string)}
                 />
             </ThreeColumnGrid>
         </>

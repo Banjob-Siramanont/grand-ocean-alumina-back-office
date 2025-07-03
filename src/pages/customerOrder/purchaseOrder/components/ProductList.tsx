@@ -1,9 +1,19 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductData, deleteProductData, setProductDatas } from '../../../../store/reducer/customerOrder/PurchaseOrderSlice';
+
+// Components
 import Topic from '../../../../common/topic/Topic';
 import SelectSearchSecondary from '../../../../common/select/SelectSearchSecondary';
 import InputSecondary from '../../../../common/input/InputSecondary';
 import OutlinedButton from '../../../../common/button/OutlinedButton';
+
+// Helpers
 import { numericWithoutText } from '../../../../helper/utils/validation';
+
+// Types
+import type { AppDispatch, RootState } from '../../../../store/Store';
+import type { ProductData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
 
 const productOptionDatas = [
     { _id: '60367919', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีขาว' },
@@ -20,20 +30,14 @@ const productOptionDatas = [
     { _id: '60367935', product_name: 'ตู้วางเตาแก๊ส Zagio CR80-S 82x45.5x85.5 ซม. สีเทา' },
 ];
 
-export type ProductData = {
-    _id: string | number;
-    product_id: string;
-    amount: string;
-    note: string;
-};
-type ProductListProps = {
-    productDatas: ProductData[];
-    onDataChange: (index: number, updateKey: keyof ProductData, value: string) => void;
-    onDeleteProduct: (index: number) => void;
-    onAddProduct: () => void;
-}
+export default function ProductList() {
 
-export default function ProductList({ productDatas, onDataChange, onDeleteProduct, onAddProduct }: ProductListProps) {
+    const { productDatas } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
+    const dispatch = useDispatch<AppDispatch>();
+    const handleOnChange = <Key extends keyof ProductData>(
+        { index, updateKey, value }: { index: number; updateKey: Key; value: ProductData[Key]; }
+    ) => dispatch(setProductDatas({ index, updateKey, value }));
+
     return (
         <>
             <Topic text='รายการสินค้า' />
@@ -51,35 +55,33 @@ export default function ProductList({ productDatas, onDataChange, onDeleteProduc
                     const isDuplicate = productIdCounts[productData.product_id] > 1;
 
                     return (
-                        <React.Fragment key={productData._id}>
+                        <React.Fragment key={productData.id}>
                             <SelectSearchSecondary
                                 optionDatas={productOptionDatas}
                                 selectedValue={productData.product_id}
                                 keyValue='_id'
                                 keyDisplayValue='product_name'
-                                onChange={value => onDataChange(index, 'product_id', value as string)}
+                                onChange={value => handleOnChange({ index, updateKey: 'product_id', value: value as string })}
                                 textHelper={isDuplicate ? 'ซ้ำกับรายการอื่น' : ''}
                             />
                             <InputSecondary
                                 placeholder='จำนวนสินค้า'
                                 type='number'
                                 value={productData.amount}
-                                onChange={event => onDataChange(index, 'amount', numericWithoutText(event.target.value))}
-                            />
+                                onChange={event => handleOnChange({ index, updateKey: 'amount', value: numericWithoutText(event.target.value) })} />
                             <div className='flex justify-start items-center gap-x-2'>
                                 <InputSecondary
                                     className='w-full max-[1000px]:mb-4'
                                     placeholder='หมายเหตุ (ไม่บังคับ)'
                                     type='text'
                                     value={productData.note}
-                                    onChange={event => onDataChange(index, 'note', event.target.value)}
-                                />
+                                    onChange={event => handleOnChange({ index, updateKey: 'note', value: event.target.value })} />
                                 <OutlinedButton
                                     text='-'
                                     textColor='text-alarmRed'
                                     bgColor='bg-alarmRed'
                                     borderColor='border-alarmRed'
-                                    onClick={() => onDeleteProduct(index)}
+                                    onClick={() => deleteProductData(index)}
                                 />
                             </div>
                         </React.Fragment>
@@ -92,14 +94,14 @@ export default function ProductList({ productDatas, onDataChange, onDeleteProduc
                     textColor='text-themeColor'
                     bgColor='bg-themeColor'
                     borderColor='border-themeColor'
-                    onClick={() => onAddProduct()}
+                    onClick={() => addProductData()}
                 />
                 <OutlinedButton
                     text='- ลบรายการ'
                     textColor='text-alarmRed'
                     bgColor='bg-alarmRed'
                     borderColor='border-alarmRed'
-                    onClick={() => onDeleteProduct(productDatas.length - 1)} // Placeholder for add product logic
+                    onClick={() => deleteProductData(productDatas.length - 1)}
                 />
             </div>
 

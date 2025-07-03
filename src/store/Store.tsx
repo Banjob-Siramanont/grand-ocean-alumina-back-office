@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import vehicleBrandDataStateValue from './reducer/vehicleBrandSlice/VehicleBrandSlice';
 import sidebarDataStateValue from './reducer/sidebarSlice/SidebarSlice';
+import purchaseOrderDataStateValue from './reducer/customerOrder/PurchaseOrderSlice';
 
 export const store = configureStore({
     reducer: {
-        vehicleBrandDataStateValue,
-        sidebarDataStateValue
+        sidebarDataStateValue,
+        purchaseOrderDataStateValue
     },
 });
 
