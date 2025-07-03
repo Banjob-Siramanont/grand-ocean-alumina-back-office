@@ -15,24 +15,9 @@ import { numericWithoutText } from '../../../../helper/utils/validation';
 import type { AppDispatch, RootState } from '../../../../store/Store';
 import type { ProductData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
 
-const productOptionDatas = [
-    { _id: '60367919', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10170 100x53x120 ซม. สีขาว', price: 1500, vat: 105 },
-    { _id: '60367920', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10180 120x53x120 ซม. สีดำ', price: 1600, vat: 112 },
-    { _id: '60367921', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10190 150x53x120 ซม. สีน้ำตาล', price: 1700, vat: 119 },
-    { _id: '60367922', product_name: 'ตู้อเนกประสงค์ Ocean OCF-10200 80x53x120 ซม. สีเทา', price: 1400, vat: 98 },
-    { _id: '60367926', product_name: 'ตู้กับข้าว 2/4 Zagio CR2040-S 61.5x43x120.5 ซม. สีเงิน', price: 1800, vat: 126 },
-    { _id: '60367927', product_name: 'ตู้กับข้าว 3/4 Zagio CR3040-S 91.5x43x120.5 ซม. สีขาว', price: 1900, vat: 133 },
-    { _id: '60367928', product_name: 'ตู้กับข้าว 4/4 Zagio CR4040-S 122x43x120.5 ซม. สีดำ', price: 2000, vat: 140 },
-    { _id: '60367929', product_name: 'ตู้กับข้าว 2/3 Zagio CR2030-S 61.5x43x90.5 ซม. สีเงิน', price: 1700, vat: 119 },
-    { _id: '60367932', product_name: 'ตู้วางเตาแก๊ส Zagio CR120-S 122x45.5x85.5 ซม. สีเงิน', price: 1600, vat: 112 },
-    { _id: '60367933', product_name: 'ตู้วางเตาแก๊ส Zagio CR100-S 102x45.5x85.5 ซม. สีขาว', price: 1500, vat: 105 },
-    { _id: '60367934', product_name: 'ตู้วางเตาแก๊ส Zagio CR140-S 142x45.5x85.5 ซม. สีดำ', price: 1700, vat: 119 },
-    { _id: '60367935', product_name: 'ตู้วางเตาแก๊ส Zagio CR80-S 82x45.5x85.5 ซม. สีเทา', price: 1400, vat: 98 },
-];
-
 export default function ProductList() {
 
-    const { productDatas } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
+    const { productOptionDatas, productDatas } = useSelector((state: RootState) => state.purchaseOrderDataStateValue);
     const dispatch = useDispatch<AppDispatch>();
     const handleOnChange = <Key extends keyof ProductData>(
         { index, updateKey, value }: { index: number; updateKey: Key; value: ProductData[Key]; }

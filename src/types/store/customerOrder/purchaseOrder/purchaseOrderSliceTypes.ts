@@ -13,6 +13,13 @@ export type SpecialProductData = {
     note: string;
 };
 
+export type ProductOptionData = {
+    _id: string;
+    product_name: string;
+    price: number;
+    vat: number;
+};
+
 export type PurchaseOrderData = {
     selectedCustomerCompany: string;
     poNumber: string;
@@ -21,6 +28,7 @@ export type PurchaseOrderData = {
     shippingAddress: string;
     productDatas: ProductData[];
     specialProductDatas: SpecialProductData[];
+    productOptionDatas: ProductOptionData[];
 };
 
 export type Payload<Key extends keyof PurchaseOrderData> = {
