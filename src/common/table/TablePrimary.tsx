@@ -22,6 +22,7 @@ type TablePrimaryProps = {
     data: Data[];
     rowsPerPage: number;
     tHeadDatas: TableHead[];
+    isHideTableSearch?: boolean;
     keyNameOfId: string;
     hasEditBtn?: boolean;
     editButtonText?: string;
@@ -41,6 +42,7 @@ export default function TablePrimary({
     data,
     rowsPerPage,
     tHeadDatas,
+    isHideTableSearch = false,
     keyNameOfId = 'id',
     hasEditBtn = true,
     editButtonText,
@@ -77,12 +79,16 @@ export default function TablePrimary({
 
     return (
         <div>
-            <TableSearch
-                rawData={rawData}
-                formattedDataKeys={formattedDataKeys as FormattedDataKey[]}
-                setFilteredData={data => setFilteredData(data)}
-            />
-            <br />
+            {!isHideTableSearch && (
+                <>
+                    <TableSearch
+                        rawData={rawData}
+                        formattedDataKeys={formattedDataKeys as FormattedDataKey[]}
+                        setFilteredData={data => setFilteredData(data)}
+                    />
+                    <br />
+                </>
+            )}
             <div className={styles.tableWrapper}>
                 <table className={styles.table}>
                     <TableHeader
