@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sidebarDataStateValue from './reducer/sidebarSlice/SidebarSlice';
 import purchaseOrderDataStateValue from './reducer/customerOrder/PurchaseOrderSlice';
+import claimDataStateValue from './reducer/customerOrder/ClaimSlice';
 
 export const store = configureStore({
     reducer: {
         sidebarDataStateValue,
-        purchaseOrderDataStateValue
+        purchaseOrderDataStateValue,
+        claimDataStateValue
     },
 });
 
