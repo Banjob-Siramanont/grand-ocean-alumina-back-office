@@ -148,15 +148,15 @@ const claimDataStateValue = createSlice({
 
             switch (productType) {
                 case 'repair':
-                    if (state.repairProductDatas.length <= 1) return;
+                    if (state.repairProductDatas.length <= 0) return;
                     state.repairProductDatas = deleteAndReassignId(state.repairProductDatas, index);
                     break;
                 case 'return':
-                    if (state.returnProductDatas.length <= 1) return;
+                    if (state.returnProductDatas.length <= 0) return;
                     state.returnProductDatas = deleteAndReassignId(state.returnProductDatas, index);
                     break;
                 case 'replace':
-                    if (state.replaceProductDatas.length <= 1) return;
+                    if (state.replaceProductDatas.length <= 0) return;
                     state.replaceProductDatas = deleteAndReassignId(state.replaceProductDatas, index);
                     break;
             }
