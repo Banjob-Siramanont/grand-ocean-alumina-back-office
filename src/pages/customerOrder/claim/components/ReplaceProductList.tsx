@@ -19,6 +19,9 @@ import ActionButtons from '../../../components/ActionButtons';
 
 export default function ReplaceProductList() {
 
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
+
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
 
@@ -98,7 +101,13 @@ export default function ReplaceProductList() {
                         onClick={() => dispatch(deleteProductData({ index: replaceProductDatas.length - 1, productType: 'replace' }))}
                     />
                 </div>
-                <ActionButtons actionText='ถัดไป' onClick={() => navigate('/add/verify-claim')} />
+                <ActionButtons
+                    actionText='ถัดไป'
+                    onClick={() => {
+                        if (id) navigate(`/edit/verify-claim?id=${id}`);
+                        else navigate('/add/verify-claim');
+                    }}
+                />
             </div>
         </>
     )
