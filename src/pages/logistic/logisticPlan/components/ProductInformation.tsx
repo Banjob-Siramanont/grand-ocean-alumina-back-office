@@ -82,8 +82,22 @@ function LogisticAndProductionStatus({ logisticStatus = false, productionStatus 
 
     return (
         <div className='flex justify-start items-center gap-x-2'>
-            <div title={logisticStatus ? 'approve แล้ว' : 'รอ approve'} className={`${COMMON_STYLE} ${logisticStatus ? TRUE_STYLE : FALSE_STYLE}`}>LGT</div>
-            <div title={productionStatus ? 'ผลิตเสร็จแล้ว' : 'อยู่ระหว่างการผลิต'} className={`${COMMON_STYLE} ${productionStatus ? TRUE_STYLE : FALSE_STYLE}`}>PRD</div>
+            <div className={`${COMMON_STYLE} ${logisticStatus ? TRUE_STYLE : FALSE_STYLE} relative group`}>
+                LGT
+                <Title text={logisticStatus ? 'approve แล้ว' : 'รอ approve'} />
+            </div>
+            <div className={`${COMMON_STYLE} ${productionStatus ? TRUE_STYLE : FALSE_STYLE} relative group`}>
+                PRD
+                <Title text={productionStatus ? 'ผลิตเสร็จแล้ว' : 'อยู่ระหว่างการผลิต'} />
+            </div>
         </div>
+    )
+}
+
+function Title({ text }: { text: string; }) {
+    return (
+        <span className='absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 bg-oceanGrey text-white text-sm rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-0 pointer-events-none whitespace-nowrap'>
+            {text}
+        </span>
     )
 }
