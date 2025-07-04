@@ -928,7 +928,7 @@ export default function Example() {
                 />
             </CardPrimary>
             <CardPrimary className='my-4'>
-                <div className='w-full flex justify-between items-start gap-x-4 overflow-auto'>
+                <div className='w-full flex justify-start items-start gap-x-4 overflow-auto'>
                     <div className='w-[600px] border border-themeColor rounded-[10px] p-4 shrink-0'>
                         {mockupProductInformationDatas.map(mockupProductInformationData => (
                             <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
