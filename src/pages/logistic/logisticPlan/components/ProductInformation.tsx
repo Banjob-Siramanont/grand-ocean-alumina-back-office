@@ -30,7 +30,7 @@ export default function ProductInformation({ productInformation }: ProductInform
     const borderColor = getBorderColor(productInformation.customerType);
 
     return (
-        <div className={`grid grid-cols-[auto_1fr] gap-x-2 border-l-4 ${borderColor} dark:text-white pl-3 mb-1`}>
+        <div className={`grid grid-cols-[auto_1fr] gap-x-5 border-l-4 ${borderColor} dark:text-white pl-3 mb-2`}>
             <MainDetail productInformation={productInformation} />
             <SubDetail productInformation={productInformation} />
         </div>
@@ -47,7 +47,7 @@ function MainDetail({ productInformation }: ProductInformationProps) {
     return (
         <>
             <div>{customerCompanyName} | {shippingAddress} {poNumber}</div>
-            <div className='text-right'>{currency(price)} บาท</div>
+            <div className='text-right whitespace-nowrap'>{currency(price)} บาท</div>
         </>
     )
 }

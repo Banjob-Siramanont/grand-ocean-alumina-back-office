@@ -601,7 +601,7 @@ const mockupProductInformationDatas = [
     },
     {
         id: '2',
-        customerType: 'generalStore' as const,
+        customerType: 'shoppingMall' as const,
         customerCompanyName: 'XYZ Limited',
         shippingAddress: '456 Oak Avenue, Downtown',
         poNumber: 'PO123457',
@@ -612,7 +612,7 @@ const mockupProductInformationDatas = [
     },
     {
         id: '3',
-        customerType: 'claim' as const,
+        customerType: 'shoppingMall' as const,
         customerCompanyName: 'Tech Solutions Inc',
         shippingAddress: '789 Pine Road, Uptown',
         poNumber: 'PO123458',
@@ -634,7 +634,7 @@ const mockupProductInformationDatas = [
     },
     {
         id: '5',
-        customerType: 'generalStore' as const,
+        customerType: 'shoppingMall' as const,
         customerCompanyName: 'Metro Business',
         shippingAddress: '654 Cedar Lane, Westside',
         poNumber: 'PO123460',
@@ -645,7 +645,7 @@ const mockupProductInformationDatas = [
     },
     {
         id: '6',
-        customerType: 'claim' as const,
+        customerType: 'shoppingMall' as const,
         customerCompanyName: 'Prime Enterprises',
         shippingAddress: '987 Maple Drive, Eastside',
         poNumber: 'PO123461',
@@ -682,7 +682,7 @@ const mockupProductInformationDatas = [
         customerCompanyName: 'Dynamic Corp',
         shippingAddress: '369 Willow Path, Central',
         poNumber: 'PO123464',
-        price: 1350,
+        price: 0,
         poExpireDate: '2025-08-10',
         logisticStatus: true,
         productionStatus: false
@@ -698,6 +698,75 @@ const mockupProductInformationDatas = [
         logisticStatus: false,
         productionStatus: true
     }
+];
+
+const mockupProductInformationDatas2 = [
+    {
+        id: '1',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'ABC Corp',
+        shippingAddress: '123 Main St, Cityville',
+        poNumber: 'PO123456',
+        price: 1000,
+        poExpireDate: '2025-07-01',
+        logisticStatus: true,
+        productionStatus: false
+    },
+    {
+        id: '2',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'XYZ Limited',
+        shippingAddress: '456 Oak Avenue, Downtown',
+        poNumber: 'PO123457',
+        price: 1500,
+        poExpireDate: '2025-07-05',
+        logisticStatus: false,
+        productionStatus: true
+    },
+    {
+        id: '3',
+        customerType: 'generalStore' as const,
+        customerCompanyName: 'Tech Solutions Inc',
+        shippingAddress: '789 Pine Road, Uptown',
+        poNumber: 'PO123458',
+        price: 2000,
+        poExpireDate: '2025-07-10',
+        logisticStatus: true,
+        productionStatus: true
+    },
+    {
+        id: '4',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'Global Industries',
+        shippingAddress: '321 Elm Street, Midtown',
+        poNumber: 'PO123459',
+        price: 750,
+        poExpireDate: '2025-07-15',
+        logisticStatus: false,
+        productionStatus: false
+    },
+    {
+        id: '5',
+        customerType: 'generalStore' as const,
+        customerCompanyName: 'Metro Business',
+        shippingAddress: '654 Cedar Lane, Westside',
+        poNumber: 'PO123460',
+        price: 1200,
+        poExpireDate: '2025-07-20',
+        logisticStatus: true,
+        productionStatus: false
+    },
+    {
+        id: '6',
+        customerType: 'claim' as const,
+        customerCompanyName: 'Prime Enterprises',
+        shippingAddress: '987 Maple Drive, Eastside',
+        poNumber: 'PO123461',
+        price: 0,
+        poExpireDate: '2025-07-25',
+        logisticStatus: false,
+        productionStatus: true
+    },
 ];
 
 export default function Example() {
@@ -858,11 +927,30 @@ export default function Example() {
                     isLoading={false}
                 />
             </CardPrimary>
-            <div className='border border-themeColor rounded-[10px] p-4'>
-                {mockupProductInformationDatas.map(mockupProductInformationData => (
-                    <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
-                ))}
-            </div>
+            <CardPrimary className='my-4'>
+                <div className='w-full flex justify-between items-start gap-x-4 overflow-auto'>
+                    <div className='w-[600px] border border-themeColor rounded-[10px] p-4 shrink-0'>
+                        {mockupProductInformationDatas.map(mockupProductInformationData => (
+                            <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
+                        ))}
+                    </div>
+                    <div className='w-[600px] border border-themeColor rounded-[10px] p-4 shrink-0'>
+                        {mockupProductInformationDatas2.map(mockupProductInformationData => (
+                            <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
+                        ))}
+                    </div>
+                    <div className='w-[600px] border border-themeColor rounded-[10px] p-4 shrink-0'>
+                        {mockupProductInformationDatas.map(mockupProductInformationData => (
+                            <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
+                        ))}
+                    </div>
+                    <div className='w-[600px] border border-themeColor rounded-[10px] p-4 shrink-0'>
+                        {mockupProductInformationDatas2.map(mockupProductInformationData => (
+                            <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
+                        ))}
+                    </div>
+                </div>
+            </CardPrimary>
         </>
     )
 }
