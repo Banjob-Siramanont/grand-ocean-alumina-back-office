@@ -13,7 +13,7 @@ import { numericWithoutText } from '../../../../helper/utils/validation';
 
 // Types
 import type { AppDispatch, RootState } from '../../../../store/Store';
-import type { ProductData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
+import type { ProductData } from '../../../../types/store/customerOrder/purchaseOrderSliceTypes';
 
 export default function ProductList() {
 

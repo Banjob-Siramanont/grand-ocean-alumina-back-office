@@ -1,4 +1,4 @@
-import type { ProductData, ProductOptionData, SpecialProductData } from "../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes";
+import type { ProductData, ProductOptionData, SpecialProductData } from '../../types/store/customerOrder/purchaseOrderSliceTypes';
 
 export const getCookies = (name: string) => {
     let cookieArr = document.cookie.split(';');

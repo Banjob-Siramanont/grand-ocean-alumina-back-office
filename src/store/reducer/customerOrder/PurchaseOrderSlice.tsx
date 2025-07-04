@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { Payload, ProductData, PurchaseOrderData, SpecialProductData } from '../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
+import type { Payload, ProductData, PurchaseOrderData, SpecialProductData } from '../../../types/store/customerOrder/purchaseOrderSliceTypes';
 import { deleteAndReassignId } from '../../../helper/utils/common';
 
 const setSessionStorage = (state: PurchaseOrderData) => sessionStorage.setItem('purchaseOrderDataState', JSON.stringify(state));

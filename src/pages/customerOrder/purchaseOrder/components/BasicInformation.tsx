@@ -10,7 +10,7 @@ import Topic from '../../../../common/topic/Topic';
 
 // Types
 import type { AppDispatch, RootState } from '../../../../store/Store';
-import type { PurchaseOrderData } from '../../../../types/store/customerOrder/purchaseOrder/purchaseOrderSliceTypes';
+import type { PurchaseOrderData } from '../../../../types/store/customerOrder/purchaseOrderSliceTypes';
 
 export default function BasicInformation() {
 
