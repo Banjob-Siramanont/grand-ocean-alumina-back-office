@@ -19,6 +19,7 @@ import TwoColumnGrid from '../common/general/TwoColumnGrid';
 import { dateSelector, type Period } from '../helper/utils/date';
 import VerticalBarchart from '../common/chart/VerticalBarchart';
 import { GREY, THEME_COLOR } from '../common/chart/colorForCharts';
+import ProductInformation from './logistic/logisticPlan/components/ProductInformation';
 
 const mockupDatas4 = [
     {
@@ -586,6 +587,119 @@ const mockupDatas = [
     }
 ]
 
+const mockupProductInformationDatas = [
+    {
+        id: '1',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'ABC Corp',
+        shippingAddress: '123 Main St, Cityville',
+        poNumber: 'PO123456',
+        price: 1000,
+        poExpireDate: '2025-07-01',
+        logisticStatus: true,
+        productionStatus: false
+    },
+    {
+        id: '2',
+        customerType: 'generalStore' as const,
+        customerCompanyName: 'XYZ Limited',
+        shippingAddress: '456 Oak Avenue, Downtown',
+        poNumber: 'PO123457',
+        price: 1500,
+        poExpireDate: '2025-07-05',
+        logisticStatus: false,
+        productionStatus: true
+    },
+    {
+        id: '3',
+        customerType: 'claim' as const,
+        customerCompanyName: 'Tech Solutions Inc',
+        shippingAddress: '789 Pine Road, Uptown',
+        poNumber: 'PO123458',
+        price: 2000,
+        poExpireDate: '2025-07-10',
+        logisticStatus: true,
+        productionStatus: true
+    },
+    {
+        id: '4',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'Global Industries',
+        shippingAddress: '321 Elm Street, Midtown',
+        poNumber: 'PO123459',
+        price: 750,
+        poExpireDate: '2025-07-15',
+        logisticStatus: false,
+        productionStatus: false
+    },
+    {
+        id: '5',
+        customerType: 'generalStore' as const,
+        customerCompanyName: 'Metro Business',
+        shippingAddress: '654 Cedar Lane, Westside',
+        poNumber: 'PO123460',
+        price: 1200,
+        poExpireDate: '2025-07-20',
+        logisticStatus: true,
+        productionStatus: false
+    },
+    {
+        id: '6',
+        customerType: 'claim' as const,
+        customerCompanyName: 'Prime Enterprises',
+        shippingAddress: '987 Maple Drive, Eastside',
+        poNumber: 'PO123461',
+        price: 1800,
+        poExpireDate: '2025-07-25',
+        logisticStatus: false,
+        productionStatus: true
+    },
+    {
+        id: '7',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'Future Systems',
+        shippingAddress: '147 Birch Court, Northside',
+        poNumber: 'PO123462',
+        price: 2200,
+        poExpireDate: '2025-07-30',
+        logisticStatus: true,
+        productionStatus: true
+    },
+    {
+        id: '8',
+        customerType: 'generalStore' as const,
+        customerCompanyName: 'Innovative Solutions',
+        shippingAddress: '258 Spruce Way, Southside',
+        poNumber: 'PO123463',
+        price: 950,
+        poExpireDate: '2025-08-05',
+        logisticStatus: false,
+        productionStatus: false
+    },
+    {
+        id: '9',
+        customerType: 'claim' as const,
+        customerCompanyName: 'Dynamic Corp',
+        shippingAddress: '369 Willow Path, Central',
+        poNumber: 'PO123464',
+        price: 1350,
+        poExpireDate: '2025-08-10',
+        logisticStatus: true,
+        productionStatus: false
+    },
+    {
+        id: '10',
+        customerType: 'shoppingMall' as const,
+        customerCompanyName: 'Advanced Tech',
+        shippingAddress: '741 Aspen Boulevard, Riverside',
+        poNumber: 'PO123465',
+        price: 1650,
+        poExpireDate: '2025-08-15',
+        logisticStatus: false,
+        productionStatus: true
+    }
+];
+
 export default function Example() {
 
     const [selectedOption, setSelectedOption] = useState<Period>('TW');
@@ -744,6 +858,11 @@ export default function Example() {
                     isLoading={false}
                 />
             </CardPrimary>
+            <div className='border border-themeColor rounded-[10px] p-4'>
+                {mockupProductInformationDatas.map(mockupProductInformationData => (
+                    <ProductInformation key={mockupProductInformationData.id} productInformation={mockupProductInformationData} />
+                ))}
+            </div>
         </>
     )
 }
